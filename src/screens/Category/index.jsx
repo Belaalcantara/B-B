@@ -1,18 +1,25 @@
-import { View } from "react-native";
+import React from 'react';
+import { View,Image, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import style from '../../components/DetalhesComidas/styles';
+import Cardapio from "../../components/DetalhesComidas";
 
-import styles from "./styles";
-import Title from "../../components/Title";
-import TouchButton from "../../components/TouchButton";
-import { user } from "../../data/Profile";
-
-export default function Category() {
+export default function cardapio() {
   return (
-    <View style={styles.container}>
-      <Title title="Category" />
+    <ScrollView>
+      <Cardapio
+            restaurante={"spolleto"}
+          subtitulo={"preco minimo de 30 reais"}
+      />
+      
+        <Cardapio 
+         nome={"Café gelado"}
+         sobre={"Um café gelado cremoso para adoçar o dia ao mesmo tempo que o enche de energia e matar o calor, do jeito que você mais precisa de todas as formas que quiser, sendo: fraco, médio, forte e extra forte."}
+         preco={"R$ 9,00"}
+        />
 
-      <TouchButton route="Category" title="Go to Category" />
-
-      <TouchButton route="Profile" title="Go to Profile" data={user} />
-    </View>
+    </ScrollView>
   );
 }
+
+
