@@ -9,15 +9,19 @@ export default function CardapioScreen() {
       <View style={style.cardapio}>
   
 
-        <Cardapio
-            <Image style={style.imageHeader}
-            source={require('../../../assets/cheese.jpg')}/>
-          restaurante={"Spoleto"}
-          subtitulo={"Preço mínimo de 30 reais"}
-          subtitulo2={"Café gelado"}
-          sobre={" de energia e matar o calor, do jeito que você mais precisa de todas as formas que quiser, sendo: fraco, médio, forte e extra forte."}
-          preco={"R$ 9,00"}
-        />
+      <Cardapio
+  restaurante="Spoleto"
+  subtitulo="Preço mínimo de 30 reais"
+  subtitulo2="Café gelado"
+  sobre="De energia e matar o calor, do jeito que você mais precisa de todas as formas que quiser, sendo: fraco, médio, forte e extra forte."
+  preco="R$ 9,00"
+>
+  <Image 
+    style={style.imageHeader}
+    source={require('../../../assets/cheese.jpg')}
+  />
+</Cardapio>
+
       </View>
     </ScrollView>
   );

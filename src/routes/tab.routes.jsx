@@ -72,22 +72,12 @@ const TabRoutes = () => {
           tabBarIcon: ({ focused }) => (
             <Feather
               name="users"
-     
-     <Tab.Screen
-        name="BoasVindas1"
-        component={BoasVindas1}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name="list"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          tabBarLabel: "Sobre Nós",
-          tabBarLabel: "Categorias",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
+              />
+            ),
+            tabBarLabel: "Categorias",
+            tabBarActiveTintColor: "#131313",
+            tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
 
