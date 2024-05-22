@@ -129,7 +129,7 @@ const TabRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          tabBarLabel: "Categorias",
+          tabBarLabel: "Login",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
