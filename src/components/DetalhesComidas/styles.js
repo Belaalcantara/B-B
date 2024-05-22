@@ -1,62 +1,48 @@
-import { StyleSheet} from "react-native-web"
+import { StyleSheet } from "react-native-web"
 
 const style = StyleSheet.create({
-    container:{
-     flex: 1,
-     backgroundColor: "#681111",
-     justifyContent: "center",
-     alignItems: "center"
+
+  imagemHeader:{
+    width: "10vw",
+    height: "5vh",
+    
+  },
+
+  cardapio:{
+    width: "100vw",
+    height: "30vh",
+    borderRadius: "30px",
+    marginBottom:20,
+    color:"#ffff",
+    fontSize:20,
+    backgroundColor:"#681111"
+},
+
+
+    cardCardapio: {
+      backgroundColor: "#FFFFFF",
+      borderRadius:20,
+      alignItems: "center",
+      justifyContent: "center",
+      width: "90vw",
+      height: "18vh",
+      marginTop: 100,
+      marginBottom: 30,
+      marginLeft:20,
+      
     },
 
-    cardapio:{
-        width: "100vw",
-        height: "70vh",
-        borderRadius: "20px",
-        marginBottom:50,
+    restaurante: {
+      fontSize: 40,
+      marginTop:20,
+      color:"#FFFFFF"
     },
+    subtitulo2: {
+      fontSize: 25,
+      color: "black"
+    }
+
+  })
+export default style;
 
 
-    imagemHeader:{
-     width: "100vw",
-     height: "50vh",
-     borderRadius: "10px",
-    },
-
-    imagemCard:{
-        width: "55vw",
-        height: "30vh",
-        borderRadius: "30px",
-        marginLeft:20,
-        marginTop:"15px"
-       },
-   
-       sobre:{
-     fontSize: "18px",
-     padding: "5px",
-     marginBottom: "15px",
-     marginLeft: "4px",
-    },
-   
-     preco:{
-       fontSize: "15px",
-       padding: "5px",
-       marginTop: "10px",
-       color: "#8f6277",
-       textAlign: "center",
-     },
-
-     cardCardapio:{
-        backgroundColor:"#fffff",
-        alignItems:"center",
-        justifyContent:"center",
-        width:"90vw",
-        height:"70vh",
-        marginTop:30,
-        marginBottom:30,
-
-     }
-   
-   })
-   export default style;
-   
-   
