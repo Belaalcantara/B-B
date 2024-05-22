@@ -8,6 +8,7 @@ import { user } from "../data/Profile";
 import BoasVindas1 from "../screens/BoasVindas1";
 import BoasVindas2 from "../screens/BoasVindas2";
 import BoasVindas3 from "../screens/BoasVindas3";
+import Login from "../screens/Login";
 
 const Tab = createBottomTabNavigator();
 
@@ -85,6 +86,7 @@ const TabRoutes = () => {
 <Tab.Screen
         name="BoasVindas2"
         component={BoasVindas2}
+        initialParams={{ isAlreadyRegistered: true }}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -106,6 +108,23 @@ const TabRoutes = () => {
           tabBarIcon: ({ focused }) => (
             <Feather
               name="list"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Categorias",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Tab.Screen
+        name="Login"
+        component={Login}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="user"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
