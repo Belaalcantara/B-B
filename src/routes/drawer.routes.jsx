@@ -7,6 +7,7 @@ import Category from "../screens/Category";
 import { user } from "../data/Profile";
 import BoasVindas1 from "../screens/BoasVindas1";
 import BoasVindas2 from "../screens/BoasVindas2";
+import BoasVindas3 from "../screens/BoasVindas3";
 
 const Drawer = createDrawerNavigator();
 
@@ -87,6 +88,25 @@ const DrawerRoutes = () => {
 <Drawer.Screen
         name="BoasVindas2"
         component={BoasVindas2}
+        initialParams={{ data: user }}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Perfil",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+        />
+
+<Drawer.Screen
+        name="BoasVindas3"
+        component={BoasVindas3}
         initialParams={{ data: user }}
         options={{
           headerTitle: "",
