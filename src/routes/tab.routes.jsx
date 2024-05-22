@@ -6,6 +6,9 @@ import Profile from "../screens/Profile";
 import Category from "../screens/Category";
 import { user } from "../data/Profile";
 import SobreNos from "../screens/SobreNos";
+import BoasVindas1 from "../screens/BoasVindas1";
+import BoasVindas2 from "../screens/BoasVindas2";
+import BoasVindas3 from "../screens/BoasVindas3";
 
 const Tab = createBottomTabNavigator();
 
@@ -62,7 +65,6 @@ const TabRoutes = () => {
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
-      
       <Tab.Screen
         name="SobreNos"
         component={SobreNos}
@@ -70,15 +72,59 @@ const TabRoutes = () => {
           tabBarIcon: ({ focused }) => (
             <Feather
               name="users"
+     
+     <Tab.Screen
+        name="BoasVindas1"
+        component={BoasVindas1}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="list"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
           tabBarLabel: "Sobre Nós",
+          tabBarLabel: "Categorias",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
+
+<Tab.Screen
+        name="BoasVindas2"
+        component={BoasVindas2}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="list"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Categorias",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+<Tab.Screen
+        name="BoasVindas3"
+        component={BoasVindas3}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="list"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Categorias",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
     </Tab.Navigator>
   );
 };
