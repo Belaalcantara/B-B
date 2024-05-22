@@ -1,16 +1,50 @@
 
 import { View, ImageBackground, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import Popup from "../../components/Popup";
 
-export default function Login({ route }) {
+export default function Login() {
 
     const navigation = useNavigation();
+
+    //popup
+    const [popup, setPopup] = useState(false);
+    const [content, setContent] = useState('');
 
     //variables inputs
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const fetchUser = async() => {
+        try {
+            const response = await axios.get(`http://localhost:4000/users/${email}`);
+            const user = response.data;
+            console.log(user);
+            if(user) {
+               if(password == user.password) {
+                navigation.navigate('Home');
+               } else {
+                setPopup(true);
+                setContent('Erro! Senha incorreta');
+               }
+            } else {
+                setPopup(true);
+                setContent('Erro! E-mail não cadastrado');
+            }
+        } catch(e) {
+            console.log('Erro interno de servidor', e);
+            setPopup(true);
+            setContent('Erro de servidor');
+        }
+
+        setTimeout(() => {
+            setPopup(false);
+        }, 3000)
+    }
+
 
     return(
         <View style={styles.container}>
@@ -33,9 +67,12 @@ export default function Login({ route }) {
                             onChangeText={setPassword}
                         />
                     </View>
-                    <TouchableOpacity onPress={navigation.navigate('Home')} style={styles.entryBtn}>
+                    <TouchableOpacity onPress={fetchUser} style={styles.entryBtn}>
                         <Text style={{color:'white', textTransform: 'uppercase'}}>Entrar</Text>
                     </TouchableOpacity>
+                    {
+                        popup && <Popup type={content}/>
+                    }
                 </View>
             </View>
         </View>
