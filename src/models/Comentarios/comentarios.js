@@ -16,7 +16,7 @@ class ComentariosRepository {
         this.list.push(comentario);
     }
 
-    putComentario(id, nome, comentario) {
+    putComentario(id, nome, coment) {
         const comentario = this.getCompanyById(id);
 
         console.log('comentario:', comentario);
@@ -24,7 +24,7 @@ class ComentariosRepository {
         console.log(nome, coment);
 
 
-        if(comentario) {
+        if (comentario) {
             comentario.nome = nome;
             comentario.coment = coment;
         }
