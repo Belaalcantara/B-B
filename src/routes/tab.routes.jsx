@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Category from "../screens/Category";
 import { user } from "../data/Profile";
+import SobreNos from "../screens/SobreNos";
 import BoasVindas1 from "../screens/BoasVindas1";
 import BoasVindas2 from "../screens/BoasVindas2";
 import BoasVindas3 from "../screens/BoasVindas3";
@@ -64,6 +65,13 @@ const TabRoutes = () => {
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
+      <Tab.Screen
+        name="SobreNos"
+        component={SobreNos}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="users"
      
      <Tab.Screen
         name="BoasVindas1"
@@ -76,6 +84,7 @@ const TabRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+          tabBarLabel: "Sobre Nós",
           tabBarLabel: "Categorias",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
