@@ -8,18 +8,13 @@ const styles = StyleSheet.create({
         padding: 5,
         backgroundColor: '#F6F6F6',
     },
-    image: {
-        flex: 1,
-        width: "100vw",
-        height: "120vh"
-      },
     subContainer: {
         borderWidth: 1,
         borderColor: '#fff',
         padding: 10,
         marginBottom: 20,
         borderRadius: 5,
-        width: '80%',
+        width: '90%',
         backgroundColor: '#fff',
         boxShadow: 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px'
 

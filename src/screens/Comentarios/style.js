@@ -1,21 +1,12 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        backgroundColor: '#fff',
-      
-
-    },
 
     formsContainer: {
-        marginBottom: 20
+        marginBottom: 10
     },
 
-    image: {
+    fundo: {
         flex: 1,
         width: "100vw",
         height: "105vh"
@@ -64,16 +55,15 @@ const styles = StyleSheet.create({
 
 
     forms: {
-        marginLeft:9 ,
+        marginLeft: 5,
         marginBottom: 30,
-        marginTop:20,
+        marginTop: '60%',
         width: 380,
         justifyContent: "center",
         alignItems: "center",
         padding: 3,
-        border: "3px outset #ccb4d9",
-    borderRadius:"10px"
-
+        border: "2.5px outset #F23005",
+        borderRadius: "10px"
     },
     texto2: {
         marginTop: 40,
@@ -101,34 +91,34 @@ const styles = StyleSheet.create({
     texto3: {
 
         marginTop: 15,
-      
+
     },
 
     button: {
-        backgroundColor: '#B499F0',
+        backgroundColor: '#F23005',
         width: 80,
         height: 30,
         borderRadius: 20,
         marginLeft: 10,
         marginTop: 20,
-
     },
-    
+
     textButton: {
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'row',
         marginTop: 3.5,
+        color: '#fff'
     },
     textButton2: {
-       
+
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'row',
         marginTop: 3.5,
-        fontSize:15,
+        fontSize: 15,
 
     }
 

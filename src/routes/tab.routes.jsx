@@ -85,7 +85,7 @@ const TabRoutes = () => {
 <Tab.Screen
         name="RendComent"
         component={RendComent}
-        initialParams={{comentario: null, edit: false}}
+        
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather

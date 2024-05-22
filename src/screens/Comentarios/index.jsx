@@ -21,6 +21,8 @@ export default function Comentarios({ route }) {
     const [nome, setNome] = useState([]);
     const [comentarios, setComentarios] = useState([]);
 
+    const [novoComentario, setNovoComentario] = useState()
+
     const clearInputs = () => {
         setNome('');
         setComentarios('');
@@ -44,63 +46,60 @@ export default function Comentarios({ route }) {
             clearInputs();
         } else {
             const comentario = new Coment(nome, comentarios);
+            setNovoComentario(comentario)
             listComentarios.postComentario(comentario);
             clearInputs();
         }
-        navigation.navigate('RendComent', {data: comentario});
+        navigation.navigate('RendComent');
     }
 
 
     return (
         <ScrollView>
+                <View style={styles.container}>
+                    <View style={styles.forms}>
+                        <Text style={styles.titulo}>Faça um comentário</Text>
 
-            <View style={styles.container}>
-                <ImageBackground source={require("../../../assets/images/fundo.jpeg")} style={{ width: "60vw", height: "20vh", marginBottom: 15, marginTop: 2 }} />
-                <View style={styles.forms}>
-                    <Text style={styles.titulo}>Faça um comentário</Text>
+                        <View style={styles.inputField}>
+                            <TextInput
+                                value={nome}
+                                onChangeText={setNome}
+                                placeholder="Nome"
+                            />
+                            <Feather
+                                name="user"
+                                size={24}
+                                color={"#000"}
+                            />
+                        </View>
 
-                    <View style={styles.inputField}>
-                        <TextInput
-                            value={nome}
-                            onChangeText={setNome}
-                            placeholder="Nome"
-                        />
-                        <Feather
-                            name="home"
-                            size={24}
-                            color={"#000"}
-                        />
-                    </View>
+                        <View style={styles.inputField}>
+                            <TextInput
+                                value={comentarios}
+                                onChangeText={setComentarios}
+                                placeholder="Comentário"
+                            />
+                            <Feather
+                                name="message-circle"
+                                size={24}
+                                color={"#000"}
+                            />
+                        </View>
 
-                    <View style={styles.inputField}>
-                        <TextInput
-                            value={comentarios}
-                            onChangeText={setComentarios}
-                            placeholder="Comentario"
-                        />
-                        <Feather
-                            name="home"
-                            size={24}
-                            color={"#000"}
-                        />
-                    </View>
-
-                    <View style={styles.button} >
-                        <View style={styles.handle}>
-                            <TouchableOpacity onPress={() => handleComent()}>
-                                <Text style={styles.textButton}>{isUpdate ? 'Atualizar' : 'Cadastrar'}</Text>
-                            </TouchableOpacity>
-                            {isUpdate && (
-                                <TouchableOpacity style={styles.button2} onPress={clearInputs}>
-                                    <Text style={styles.textButton2}>Cancelar Edição</Text>
+                        <View style={styles.button} >
+                            <View style={styles.handle}>
+                                <TouchableOpacity onPress={() => handleComent()}>
+                                    <Text style={styles.textButton}>{isUpdate ? 'Atualizar' : 'Postar'}</Text>
                                 </TouchableOpacity>
-                            )}
+                                {isUpdate && (
+                                    <TouchableOpacity style={styles.button2} onPress={clearInputs}>
+                                        <Text style={styles.textButton2}>Cancelar Edição</Text>
+                                    </TouchableOpacity>
+                                )}
+                            </View>
                         </View>
                     </View>
-
-
                 </View>
-            </View>
         </ScrollView>
     );
 }
