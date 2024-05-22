@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   },
   textonome: {
     color: '#fff',
+    marginTop: 5,
   },
   imageperfil: {
     width: 80,
@@ -49,23 +50,25 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   categorias: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 17,
     marginLeft: 15,
+    marginBottom: 10,
   },
+
+
   image: {
-    width: 110,
-    height: 110,
+    width: 100,
+    height: 100,
     borderRadius: 10,
   },
   categorias1: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 10,
-    gap: 11,
+    flex: 'row'
   },
+
+
+
   blocofome: {
     backgroundColor: "#F8F8F8",
     margin: 8,
@@ -81,8 +84,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   carinhaImage: {
-    width: 35,    
-    height: 35,  
+    width: 35,
+    height: 35,
   },
   text: {
     fontSize: 15,
@@ -92,8 +95,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infosperfil: {
-    marginLeft: '5px',
-    marginTop: '-20',
+    marginLeft: 5,
+    marginTop: -5,
   },
   banner: {
     borderRadius: 10,
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
- lojalogo: {
+  lojalogo: {
     width: 70,
     height: 70,
     borderRadius: 35,
