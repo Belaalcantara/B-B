@@ -10,6 +10,7 @@ import BoasVindas1 from "../screens/BoasVindas1";
 import BoasVindas2 from "../screens/BoasVindas2";
 import BoasVindas3 from "../screens/BoasVindas3";
 import Login from "../screens/Login";
+import Register from "../screens/Cadastro";
 
 const Tab = createBottomTabNavigator();
 
@@ -148,6 +149,24 @@ const TabRoutes = () => {
           tabBarLabel: "Perfil",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Tab.Screen
+        name="Register"
+        component={Register}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Registrar",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+          headerShown: false
         }}
       />
 

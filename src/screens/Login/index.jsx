@@ -22,10 +22,19 @@ export default function Login() {
     const [user, setUser] = useState();
 
     const fetchUser = async () => {
+        if(email.length == 0 || password.length == 0) {
+            setPopup(true);
+            setContent('Complete os campos');
+            setTimeout(() => {
+                setPopup(false);
+            }, 3000);
+            return false;
+        } 
+
         try {
             const response = await axios.get(`http://localhost:4000/users/${email}`);
             const user = response.data;
-            if (user) {
+            if (!user.email) {
                 if (password == user.password) {
                     navigation.navigate('Home');
                     setUser(user);
@@ -43,6 +52,10 @@ export default function Login() {
         setTimeout(() => {
             setPopup(false);
         }, 3000)
+    }
+
+    const goToRegister = () => {
+        navigation.navigate('Register');
     }
 
 
@@ -76,6 +89,10 @@ export default function Login() {
                                 </View>
                                 <TouchableOpacity onPress={fetchUser} style={styles.entryBtn}>
                                     <Text style={{ color: 'white', textTransform: 'uppercase' }}>Entrar</Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity onPress={goToRegister} style={styles.nav}>
+                                    <Text>Ainda não é cadastrado?</Text>
                                 </TouchableOpacity>
                                 {
                                     popup && <Popup type={content} />

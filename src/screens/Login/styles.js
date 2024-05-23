@@ -31,7 +31,12 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 5
+    },
+
+    nav: {
+        margin:5
     }
 });
 
