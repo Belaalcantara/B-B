@@ -33,14 +33,11 @@ export default function Login() {
                     setPopup(true);
                     setContent('Erro! Senha incorreta');
                 }
-            } else {
-                setPopup(true);
-                setContent('Erro! E-mail não cadastrado');
             }
         } catch (e) {
             console.log('Erro interno de servidor', e);
             setPopup(true);
-            setContent('Erro de servidor');
+            setContent('Usuário não encontrado');
         }
 
         setTimeout(() => {
