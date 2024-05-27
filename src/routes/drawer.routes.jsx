@@ -152,8 +152,27 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+      <Drawer.Screen>
+      name="RendComent"
+        component={RendComent}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="message-circle"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Comentários",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      </Drawer.Screen>
+      
     </Drawer.Navigator>
-  );
+
+
 };
 
 export default DrawerRoutes;
