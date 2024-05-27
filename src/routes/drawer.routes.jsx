@@ -8,6 +8,7 @@ import SobreNos from "../screens/SobreNos";
 import Category from "../screens/Category";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
+import Sorvetrias from '../screens/Category/sorveteria';
 
 import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
@@ -72,6 +73,24 @@ const DrawerRoutes = () => {
             />
           ),
           drawerLabel: "Equipe B&B",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+<Drawer.Screen
+        name="Sorveteria"
+        component={Sorvetrias}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "SorvteriaAAA",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
