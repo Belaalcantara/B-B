@@ -75,6 +75,7 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Comentarios"
         component={Comentarios}
+        initialParams= {{comentario:'oiii', edit: false}}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
