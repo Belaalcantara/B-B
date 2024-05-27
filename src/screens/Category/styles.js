@@ -1,17 +1,47 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet} from "react-native-web"
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
-  },
-});
+const style = StyleSheet.create({
+  
 
-export default styles;
+  
+
+
+    cardapio:{
+        width: "100vw",
+        height: "30vh",
+        marginBottom:50,
+        color:"#ffff",
+        borderBottomLeftRadius: 40,
+        borderBottomRightRadius: 40,
+    },
+    imagemCard:{
+        width: "5vw",
+        height: "30vh",
+        borderRadius: "30px",
+        marginLeft:20,
+        marginTop:"15px"
+       },
+   
+       sobre:{
+     fontSize: "18px",
+     padding: "5px",
+     marginBottom: "15px",
+     marginLeft: "4px",
+    },
+   
+  
+
+     cardCardapio:{
+        alignItems:"center",
+        justifyContent:"center",
+        width:"90vw",
+        height:"60vh",
+        marginTop:30,
+        marginBottom:10,
+     }
+  
+   
+   })
+   export default style;
+   
+   
