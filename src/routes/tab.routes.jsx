@@ -79,6 +79,15 @@ const TabRoutes = () => {
           tabBarIcon: ({ focused }) => (
             <Feather
               name="comentarios"
+              size={24}
+              />
+            ),
+            tabBarLabel: "Categorias",
+            tabBarActiveTintColor: "#131313",
+            tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
 
       <Tab.Screen
         name="SobreNos"
