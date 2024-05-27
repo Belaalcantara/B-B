@@ -38,7 +38,7 @@ export default function SobreNos() {
                             </View>
                             <View style={styles.icons}>
                                 <a href="https://github.com/santnii?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                                <a href="http://github.com/santni"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="http://github.com/santnii"><Feather name="github" size={30} color="#D96704" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é uma aluna do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
