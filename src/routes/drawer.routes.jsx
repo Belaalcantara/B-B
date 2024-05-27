@@ -1,3 +1,4 @@
+import React from 'react';
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
 
@@ -9,6 +10,7 @@ import BoasVindas2 from "../screens/BoasVindas2";
 import BoasVindas3 from "../screens/BoasVindas3";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
+import RendComent from '../screens/RendComent';
 
 const Drawer = createDrawerNavigator();
 
@@ -73,7 +75,7 @@ const DrawerRoutes = () => {
           headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="list"
+              name="smile"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
@@ -91,7 +93,7 @@ const DrawerRoutes = () => {
           headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="list"
+              name="smile"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
@@ -108,7 +110,7 @@ const DrawerRoutes = () => {
           headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="list"
+              name="smile"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
@@ -139,10 +141,10 @@ const DrawerRoutes = () => {
         name="Register"
         component={Register}
         options={{
-          headerShown: false,
+          headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="user"
+              name="user-plus"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
@@ -152,27 +154,25 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
-
-      <Drawer.Screen>
-      name="RendComent"
+      <Drawer.Screen
+        name="RendComent"
         component={RendComent}
         options={{
-          tabBarIcon: ({ focused }) => (
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
             <Feather
               name="message-circle"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          tabBarLabel: "Comentários",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
+          drawerLabel: "Comentários",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
         }}
-      </Drawer.Screen>
-      
+      />
     </Drawer.Navigator>
-
-
+  );
 };
 
 export default DrawerRoutes;
