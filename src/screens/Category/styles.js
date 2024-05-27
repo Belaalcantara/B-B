@@ -3,13 +3,16 @@ import { StyleSheet} from "react-native-web"
 const style = StyleSheet.create({
   
 
+  
+
+
     cardapio:{
         width: "100vw",
         height: "30vh",
-        borderRadius: "30px",
         marginBottom:50,
-        backgroundColor:"#D96704",
-        color:"#ffff"
+        color:"#ffff",
+        borderBottomLeftRadius: 40,
+        borderBottomRightRadius: 40,
     },
     imagemCard:{
         width: "5vw",
@@ -26,21 +29,15 @@ const style = StyleSheet.create({
      marginLeft: "4px",
     },
    
-     preco:{
-       fontSize: "15px",
-       padding: "5px",
-       marginTop: "10px",
-       color: "#8f6277",
-       textAlign: "center",
-     },
+  
 
      cardCardapio:{
         alignItems:"center",
         justifyContent:"center",
         width:"90vw",
-        height:"70vh",
+        height:"60vh",
         marginTop:30,
-        marginBottom:30,
+        marginBottom:10,
      }
   
    
