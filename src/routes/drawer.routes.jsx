@@ -11,6 +11,7 @@ import BoasVindas3 from "../screens/BoasVindas3";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
 import RendComent from '../screens/RendComent';
+import Comentarios from '../screens/Comentarios';
 
 const Drawer = createDrawerNavigator();
 
@@ -157,6 +158,23 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="RendComent"
         component={RendComent}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="message-circle"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Comentários",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+      <Drawer.Screen
+        name="Comentarios"
+        component={Comentarios}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
