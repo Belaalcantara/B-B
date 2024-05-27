@@ -17,15 +17,16 @@ export default function CardapioScreen() {
         <View style={style.cardCardapio}>
 
           <Cardapio
-             imagemCard={require('../../../assets/spaghetti1.webp')}
+            imagemCard={require('../../../assets/spaghetti1.webp')}
             restaurante="Spoleto"
             subtitulo="Preço mínimo de 30 reais"
-            subtitulo2="Spaghetti" 
+            subtitulo2="Spaghetti"
             preco="R$ 9,00"
             sobre=" fraco, médio, forte e extra forte."
-            
           />
         </View>
+        
+
       </View>
     </ScrollView>
   );
