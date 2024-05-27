@@ -8,7 +8,12 @@ import SobreNos from "../screens/SobreNos";
 import Category from "../screens/Category";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
+
 import Restaurantes from '../screens/Category/Massa/Restaurantes';
+
+import Comentarios from '../screens/Comentarios';
+import RendComent from '../screens/RendComent'
+
 
 const Drawer = createDrawerNavigator();
 
@@ -89,6 +94,44 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+      <Drawer.Screen
+        name="Comentarios"
+        component={Comentarios}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Comentarios"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Faça um comentário",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="RendComent"
+        component={RendComent}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Comentarios"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Comentários",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+
 
       <Drawer.Screen
         name="Category"
