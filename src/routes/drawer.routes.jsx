@@ -13,6 +13,7 @@ import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
+import Orders from '../screens/Pedidos';
 
 
 const Drawer = createDrawerNavigator();
@@ -76,8 +77,25 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
-
-<Drawer.Screen
+      <Drawer.Screen
+        name="Orders"
+        component={Orders}
+        initialParams={{logged: false, user: null}}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Pedidos",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+      <Drawer.Screen
         name="Restaurantes"
         component={Restaurantes}
         options={{
