@@ -171,8 +171,8 @@ const DrawerRoutes = () => {
       </Drawer.Screen>
       
     </Drawer.Navigator>
+  );
 
-
-};
+}
 
 export default DrawerRoutes;
