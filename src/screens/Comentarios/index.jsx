@@ -11,7 +11,7 @@ export default function Comentarios({ route }) {
 
     let { comentario, edit } = route.params;
 
-    console.log("Teste", comentario);
+    console.log("Testee", comentario);
 
     const navigation = useNavigation();
     const [isUpdate, setIsUpdate] = useState(edit);
