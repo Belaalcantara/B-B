@@ -18,8 +18,8 @@ export default function Comentarios({ route }) {
     console.log(isUpdate);
 
 
-    const [nome, setNome] = useState([]);
-    const [comentarios, setComentarios] = useState([]);
+    const [nome, setNome] = useState('');
+    const [comentarios, setComentarios] = useState('');
 
     const [novoComentario, setNovoComentario] = useState()
 
@@ -46,11 +46,11 @@ export default function Comentarios({ route }) {
             clearInputs();
         } else {
             const comentario = new Coment(nome, comentarios);
-            setNovoComentario(comentario)
+            setComentarios(comentario);
             listComentarios.postComentario(comentario);
             clearInputs();
         }
-        navigation.navigate('RendComent');
+        navigation.navigate('RendComent',{comentario: comentarios});
     }
 
 
