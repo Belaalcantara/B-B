@@ -48,7 +48,7 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: "Inicio",
+          drawerLabel: "Inicial",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
@@ -153,3 +153,4 @@ const styles = StyleSheet.create({
 });
 
 export default DrawerRoutes;
+
