@@ -8,6 +8,7 @@ import SobreNos from "../screens/SobreNos";
 import Category from "../screens/Category";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
+import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
 const Drawer = createDrawerNavigator();
 
@@ -70,6 +71,25 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+<Drawer.Screen
+        name="Restaurantes"
+        component={Restaurantes}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="list"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Restaurantes",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
       <Drawer.Screen
         name="Category"
         component={Category}

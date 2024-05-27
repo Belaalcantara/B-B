@@ -13,12 +13,24 @@ const styles = StyleSheet.create({
         flex: 1
     },
 
+    title: {
+        marginTop: 5,
+        fontSize: 15,
+    },
+
     form: {
-        backgroundColor:'white', 
-        display:'flex',
-        alignItems:'center',
-        padding:15,
-        borderRadius:8
+        marginLeft: 9,
+        marginBottom: 30,
+        marginTop: 100,
+        width: 370,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 3,
+        border: "3px outset #ccb4d9",
+        borderRadius: "10px",
+        backgroundColor: 'white',
+        height: 480,
+
     },
 
     label: {
@@ -36,8 +48,12 @@ const styles = StyleSheet.create({
     },
 
     nav: {
-        margin:5
-    }
+        margin: 5
+    },
+
+    content: {
+        
+    },
 });
 
 export default styles;
