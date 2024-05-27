@@ -173,6 +173,11 @@ const DrawerRoutes = () => {
       />
     </Drawer.Navigator>
   );
+
 };
+
+
+
+
 
 export default DrawerRoutes;
