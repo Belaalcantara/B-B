@@ -14,6 +14,7 @@ import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
+import Orders from '../screens/Pedidos';
 
 
 const Drawer = createDrawerNavigator();
@@ -98,9 +99,16 @@ const DrawerRoutes = () => {
         }}
       />
 
+
 <Drawer.Screen
         name="Sorveteria"
         component={Sorvetrias}
+
+      <Drawer.Screen
+        name="Orders"
+        component={Orders}
+        initialParams={{logged: false, user: null}}
+
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
@@ -110,13 +118,21 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+
           drawerLabel: "SorvteriaAAA",
+
+          drawerLabel: "Pedidos",
+
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
 
+
 <Drawer.Screen
+
+      <Drawer.Screen
+
         name="Restaurantes"
         component={Restaurantes}
         options={{
@@ -137,6 +153,7 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Comentarios"
         component={Comentarios}
+        initialParams= {{comentario:'oiiii', edit: false}}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
