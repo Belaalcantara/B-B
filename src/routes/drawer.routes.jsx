@@ -10,11 +10,10 @@ import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
 import Sorveterias from '../screens/Category/sorveteria';
 import Massas from '../screens/Category/Massa';
-import Restaurantes from '../screens/Category/Massa/Restaurantes';
-
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
+import RestaurantesPizza from '../screens/Category/Pizza';
 
 
 const Drawer = createDrawerNavigator();
@@ -76,10 +75,12 @@ const DrawerRoutes = () => {
             />
           ),
           drawerLabel: "Pedidos",
+          drawerLabel: "RestaurantesPizza",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
 
       <Drawer.Screen
         name="Massas"
