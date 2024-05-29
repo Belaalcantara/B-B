@@ -3,6 +3,7 @@ import styles from "./styles";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import Modal from "../../components/Modal";
 
 export default function Orders({ route }) {
 
@@ -10,6 +11,8 @@ export default function Orders({ route }) {
 
     const [flag, setFlag] = useState(logged);
     const [orders, setOrders] = useState();
+
+    const [openModal, setOpenModal] = useState(false);
 
     const navigation = useNavigation();
 
@@ -28,9 +31,21 @@ export default function Orders({ route }) {
         fetchOrders();
     }, [flag]);
 
+    const toLogin = () => {
+        navigation.navigate('Login');
+    }
+    
+    const addAdress = () => {
+        if(true) {
+            setOpenModal(true);
+        } else {
+            toLogin();
+        }
+    }
+
     return (
         <View style={styles.container}>
-            <Text>PEDIDOS</Text>
+            <Text style={styles.title}>pedidos</Text>
             <View style={styles.orders}>
                 {
                     flag ? (
@@ -45,14 +60,22 @@ export default function Orders({ route }) {
                         </View>
                     ) : (
                         <View style={styles.loggon}>
-                            <View>
-                                <Text>É preciso entrar com seu usuário para ver o histórico</Text>
+                            <View style={styles.info}>
+                                <Text style={{fontSize:16, display: 'flex', justifyContent:'center', alignItems: 'center'}}>É preciso entrar com seu usuário para ver o histórico</Text>
                             </View>
-                            <TouchableOpacity onPress={navigation.navigate('Login')} style={styles.nav}>
-                                <Text style={{ color: 'white' }}>Entrar</Text>
+                            <TouchableOpacity onPress={toLogin} style={styles.nav}>
+                                <Text style={{ color: 'white', textTransform: 'uppercase', fontSize: 15 }}>Entrar</Text>
                             </TouchableOpacity>
                         </View>
                     )
+                }
+                <View>
+                    <TouchableOpacity onPress={addAdress} style={styles.address}>
+                        <Text style={{textTransform: 'uppercase', fontSize: 15, fontWeight: 'bold'}}>ADICIONAR LOCAL DE ENTREGA</Text>
+                    </TouchableOpacity>
+                </View>
+                {
+                    openModal && <Modal isOpen={openModal} isAvaliation={false}/>
                 }
             </View>
         </View>

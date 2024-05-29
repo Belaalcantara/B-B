@@ -1,4 +1,4 @@
-import { View, TextInput } from "react-native";
+import { View, TextInput, Text } from "react-native";
 import styles from "./styles";
 import { useEffect, useState } from "react";
 import axios from "axios";

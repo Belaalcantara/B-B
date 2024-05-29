@@ -62,8 +62,26 @@ const DrawerRoutes = () => {
         }}
       />
 
+      <Drawer.Screen
+        name="Orders"
+        component={Orders}
+        initialParams={{ logged: false, user: null }}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="list"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Pedidos",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
 
-<Drawer.Screen
+      <Drawer.Screen
         name="Massas"
         component={Massas}
         options={{
@@ -100,7 +118,7 @@ const DrawerRoutes = () => {
       />
 
 
-<Drawer.Screen
+      <Drawer.Screen
         name="Sorveterias"
         component={Sorveterias}
         options={{
@@ -121,7 +139,7 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Comentarios"
         component={Comentarios}
-        initialParams= {{comentario:'oiiii', edit: false}}
+        initialParams={{ comentario: 'oiiii', edit: false }}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (

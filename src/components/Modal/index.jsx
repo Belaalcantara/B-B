@@ -1,21 +1,29 @@
 import { useState } from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import styles from "./styles";
+import RegisterAddress from "../Address";
 
-const Modal = ({ isOpen, onClose, data, isAvaliation }) => {
-    return(
+const Modal = ({ isOpen, isAvaliation }) => {
+    return (
         <View style={styles.container}>
-            {
-                isAvaliation ? (
-                    <View>
-                        {/*Avaliação*/}
-                    </View>
-                ) : (
-                    <View>
-                        {/*Endereço*/}
-                    </View>
-                )
-            }
+            <View style={styles.modal}>
+                <View style={styles.header}>
+                    <TouchableOpacity style={styles.btn}>
+                        <Text style={{fontSize:25, padding:5, color: 'white'}}> X </Text>
+                    </TouchableOpacity>
+                    {
+                        isAvaliation ? (
+                            <View style={styles.header}>
+                                {/*Avaliação*/}
+                            </View>
+                        ) : (
+                            <View style={styles.header}>
+                                <RegisterAddress />
+                            </View>
+                        )
+                    }
+                </View>
+            </View>
         </View>
     );
 }
