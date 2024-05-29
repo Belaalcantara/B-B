@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native-web";
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:"#681111"
+    backgroundColor:"#FFFFFF"
   },
   
   
@@ -12,12 +12,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "90vw",
-    height: "50vh",
+    height: "40vh",
     marginTop: 100,
     marginBottom: 30,
     marginLeft: 20,
-    flexDirection:"row",
-    display:"flex"
+    
   },
   imgTopo: {
     width: "100vw",
@@ -28,6 +27,8 @@ const styles = StyleSheet.create({
     width: "33vw",
     height: "17vh",
     borderRadius: 10,
+    borderRadius: '0px 0px 81px 0px',
+    border: '4px solid #ffda87'
   },
   cardapio: {
     width: "100vw",
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   restaurante: {
     fontSize: 35,
     marginTop: 20,
-    color: "#FFFFFF",
+    color: "red",
     marginLeft: 10,
   },
   infosPrato: {
@@ -66,9 +67,14 @@ const styles = StyleSheet.create({
 
   },
   nomePrato:{
-    marginTop: 5,
-    fontSize: 26,
+    marginBottom: 3,
+    fontSize: 20,
+    color: "red"
   },
+  cards: {
+    flexDirection:"row",
+    display:"flex",
+  }
 });
 
 export default styles;

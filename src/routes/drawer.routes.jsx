@@ -9,7 +9,7 @@ import Category from "../screens/Category";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
 import Sorvetrias from '../screens/Category/sorveteria';
-
+import Massas from '../screens/Category/Massa';
 import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
 import Comentarios from '../screens/Comentarios';
@@ -60,6 +60,26 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+
+<Drawer.Screen
+        name="Massaaaa"
+        component={Massas}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="home"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Massa",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
       <Drawer.Screen
         name="SobreNos"
         component={SobreNos}
