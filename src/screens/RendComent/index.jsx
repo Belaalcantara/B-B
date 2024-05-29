@@ -5,9 +5,9 @@ import { useNavigation } from "@react-navigation/native";
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 
-export default function RendComent() {
+export default function RendComent({ route }) {
 
-    //const { novoComentario } = route.params;
+    const { comentario } = route.params;
     //console.log('coment',novoComentario);
 
     const navigation = useNavigation();
