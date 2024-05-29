@@ -1,9 +1,21 @@
-const { View } = require("react-native");
+import { useState } from "react";
+import { View } from "react-native";
+import styles from "./styles";
 
-const Modal = () => {
+const Modal = ({ isOpen, onClose, data, isAvaliation }) => {
     return(
-        <View>
-
+        <View style={styles.container}>
+            {
+                isAvaliation ? (
+                    <View>
+                        {/*Avaliação*/}
+                    </View>
+                ) : (
+                    <View>
+                        {/*Endereço*/}
+                    </View>
+                )
+            }
         </View>
     );
 }
