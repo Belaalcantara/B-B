@@ -70,11 +70,11 @@ export default function Login() {
                     <View>
                         <ImageBackground source={require('../../../assets/White and Red Minimalist Promotion Burger Food Instagram Story (1) (1).png')} resizeMode="cover" style={styles.background} />
                         <View style={styles.form}>
-                            <Text style={styles.title}>Faça seu login!</Text>
+                            <Text style={styles.title}>Login:</Text>
                             <View style={styles.content}>
                                 <View style={styles.inputfield}>
                                     <Text style={styles.label}>Email:</Text>
-                                    <TextInput
+                                    <TextInput style={styles.inpt}
                                         value={email}
                                         onChangeText={setEmail}
                                         keyboardType="email-address"
@@ -82,17 +82,17 @@ export default function Login() {
                                 </View>
                                 <View style={styles.inputfield}>
                                     <Text style={styles.label}>Senha:</Text>
-                                    <TextInput
+                                    <TextInput style={styles.inpt}
                                         value={password}
                                         onChangeText={setPassword}
                                     />
                                 </View>
                                 <TouchableOpacity onPress={fetchUser} style={styles.entryBtn}>
-                                    <Text style={{ color: 'white', textTransform: 'uppercase' }}>Entrar</Text>
+                                    <Text style={styles.btn}>Entrar</Text>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity onPress={goToRegister} style={styles.nav}>
-                                    <Text>Ainda não é cadastrado?</Text>
+                                    <Text style={styles.bluebtn}>Ainda não é cadastrado?</Text>
                                 </TouchableOpacity>
                                 {
                                     popup && <Popup type={content} />
