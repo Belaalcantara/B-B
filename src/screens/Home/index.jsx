@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
 import styles from "./styles";
 
+
 const carouselItems = [
   { title: 'Massas', image: require('../../../assets/Massas.png'), navigateTo: 'Massas' },
   { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), navigateTo: 'Sorveterias' },
