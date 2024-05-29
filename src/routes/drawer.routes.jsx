@@ -8,7 +8,7 @@ import SobreNos from "../screens/SobreNos";
 import Category from "../screens/Category";
 import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
-import Sorvetrias from '../screens/Category/sorveteria';
+import Sorveterias from '../screens/Category/sorveteria';
 import Massas from '../screens/Category/Massa';
 import Restaurantes from '../screens/Category/Massa/Restaurantes';
 
@@ -64,7 +64,7 @@ const DrawerRoutes = () => {
 
 
 <Drawer.Screen
-        name="Massaaaa"
+        name="Massas"
         component={Massas}
         options={{
           headerTitle: "",
@@ -101,14 +101,8 @@ const DrawerRoutes = () => {
 
 
 <Drawer.Screen
-        name="Sorveteria"
-        component={Sorvetrias}
-
-      <Drawer.Screen
-        name="Orders"
-        component={Orders}
-        initialParams={{logged: false, user: null}}
-
+        name="Sorveterias"
+        component={Sorveterias}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
@@ -118,33 +112,7 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-
-          drawerLabel: "SorvteriaAAA",
-
-          drawerLabel: "Pedidos",
-
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-
-<Drawer.Screen
-
-      <Drawer.Screen
-
-        name="Restaurantes"
-        component={Restaurantes}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="list"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Restaurantes",
+          drawerLabel: "Equipe B&B",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
