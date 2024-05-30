@@ -2,46 +2,34 @@ import { StyleSheet } from "react-native-web";
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:"#FFFFFF"
+    backgroundColor:"#EFECEC"
   },
-  
   
     cardContainer: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    alignItems: "center",
     justifyContent: "center",
     width: "90vw",
     height: "40vh",
-    marginTop: 100,
+    marginTop: 30,
     marginBottom: 30,
     marginLeft: 20,
     
   },
   imgTopo: {
     width: "100vw",
-    height: "25vh",
-    borderRadius: "10px",
+    height: "20vh",
   },
   imagemCard: {
     width: "33vw",
     height: "17vh",
     borderRadius: 10,
-    borderRadius: '0px 0px 81px 0px',
-    border: '4px solid #ffda87'
-  },
-  cardapio: {
-    width: "100vw",
-    height: "15vh",
-    marginBottom: 10,
-    backgroundColor: "#D96704",
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
+    margin: 5
   },
   restaurante: {
-    fontSize: 35,
+    fontSize: 30,
     marginTop: 20,
-    color: "red",
+    color: "white",
     marginLeft: 10,
   },
   infosPrato: {
@@ -49,31 +37,49 @@ const styles = StyleSheet.create({
     color: "black",
     marginTop: 5,
   },
-  subtitulo: {
-    fontSize: 15,
-    marginLeft: 10,
-    color: "#FFFFFF",
-  },
-  preco: {
+  precoPrato: {
     color: "#65A700",
     marginTop: 5,
     fontSize: 20,
   },
   subInfo1: {
-    fontSize: "20px",
+    fontSize: 18,
     flexDirection: "row",
     color: "#FFFFFF",
-    marginLeft:"8px"
+    marginLeft:"8px",
+    marginBottom: 15, 
+    marginTop: 5
 
   },
   nomePrato:{
     marginBottom: 3,
     fontSize: 20,
-    color: "red"
+    marginLeft: 5,
   },
   cards: {
     flexDirection:"row",
     display:"flex",
+  },
+  margem: {
+    borderRadius: 30, 
+    backgroundColor: "#681111",
+  }, 
+  nomePrato: {
+    fontSize: 20,
+    margin: 8,
+    fontWeight: "bold"
+  }, 
+  infos: {
+    maxWidth: '50%',
+  },
+  infosPrato1: {
+    margin: 10,
+    fontSize: 15
+  },
+  desc: {
+    fontSize: 18, 
+    margin: 10,
+    fontWeight: "bold"
   }
 });
 
