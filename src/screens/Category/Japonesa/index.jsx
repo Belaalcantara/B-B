@@ -8,7 +8,7 @@ function Japonesa() {
             <View style={styles.container}>
                 <View style={styles.margem}>
                 <Image
-                    source={require('../../../../assets/logosergel.png')}
+                    source={require('../../../../assets/sorvete2.jpg')}
                     style={styles.imgTopo}
                 />
                 <Text style={styles.restaurante}>Sergel</Text>
