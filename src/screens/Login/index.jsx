@@ -38,7 +38,6 @@ export default function Login() {
             const userDB = response.data;
             if (userDB.password == password) {
                 setUser(userDB);
-                console.log(user);
                 navigation.navigate('Home');
             } else {
                 setPopup(true);

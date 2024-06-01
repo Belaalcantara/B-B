@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         height:'100%',
         display: 'flex',
         alignItems: 'center',
+        width: '95%'
     },
     loggon: {
         display: 'flex',
@@ -24,9 +25,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white',
         width: '100%',
-        height: '20%',
+        height: 'auto',
         borderRadius: 8,
-        padding: 15
+        padding: 15,
+        margin: 25
     },
     info: {
         display: 'flex',
@@ -48,7 +50,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         margin: 20,
         padding: 15,
-        borderRadius: 12
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: 'black'
     }
 });
 

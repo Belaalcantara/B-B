@@ -22,7 +22,7 @@ const Modal = ({ isOpen, closeModal, isAvaliation }) => {
                             </View>
                         ) : (
                             <View style={styles.header}>
-                                <RegisterAddress />
+                                <RegisterAddress onClose={closeModal} />
                             </View>
                         )
                     }

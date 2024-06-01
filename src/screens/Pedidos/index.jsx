@@ -5,13 +5,14 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Modal from "../../components/Modal";
 import { UserContext } from "../../userContext";
+import Card from "../../components/Card";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Orders() {
 
     const { user } = useContext(UserContext);
 
-    const [flag, setFlag] = useState(user);
-    const [orders, setOrders] = useState();
+    const [orders, setOrders] = useState(null);
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -19,8 +20,9 @@ export default function Orders() {
 
     const fetchOrders = async () => {
         try {
-            if (flag) {
-                const response = await axios.get(`http://localhost:4000/cart/${user}`);
+            if (user) {
+                const response = await axios.get(`http://localhost:4000/cart/${user.email}`);
+                console.log(response);
                 setOrders(response.data);
             }
         } catch (e) {
@@ -30,7 +32,7 @@ export default function Orders() {
 
     useEffect(() => {
         fetchOrders();
-    }, [flag]);
+    }, [user]);
 
     const toLogin = () => {
         navigation.navigate('Login');
@@ -39,9 +41,9 @@ export default function Orders() {
     const closeModal = () => {
         setOpenModal(false);
     }
-    
+
     const addAdress = () => {
-        if(flag) {
+        if (user) {
             setOpenModal(true);
         } else {
             toLogin();
@@ -53,34 +55,32 @@ export default function Orders() {
             <Text style={styles.title}>pedidos</Text>
             <View style={styles.orders}>
                 {
-                    flag != null ? (
-                        <View>
-                            <Text>{orders.total}</Text>
-                            <View style={styles.unique}>
-                                <Image />
-                                <View style={styles.content}>
-                                    <Text>{orders.orders.restaurant_name}</Text>
-                                </View>
-                            </View>
-                        </View>
+                    orders != null ? (
+                        <ScrollView horizontal={false}>
+                            {
+                                orders.orders.map((order) => (
+                                    <Card data={order} key={order.id} />
+                                ))
+                            }
+                        </ScrollView>
                     ) : (
                         <View style={styles.loggon}>
                             <View style={styles.info}>
-                                <Text style={{fontSize:16, display: 'flex', justifyContent:'center', alignItems: 'center'}}>É preciso entrar com seu usuário para ver o histórico</Text>
+                                <Text style={{ fontSize: 16, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>É preciso entrar com seu usuário para ver o histórico</Text>
                             </View>
                             <TouchableOpacity onPress={toLogin} style={styles.nav}>
                                 <Text style={{ color: 'white', textTransform: 'uppercase', fontSize: 15 }}>Entrar</Text>
                             </TouchableOpacity>
+                            <View>
+                                <TouchableOpacity onPress={addAdress} style={styles.address}>
+                                    <Text style={{ textTransform: 'uppercase', fontSize: 15, fontWeight: 'bold' }}>ADICIONAR LOCAL DE ENTREGA</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     )
                 }
-                <View>
-                    <TouchableOpacity onPress={addAdress} style={styles.address}>
-                        <Text style={{textTransform: 'uppercase', fontSize: 15, fontWeight: 'bold'}}>ADICIONAR LOCAL DE ENTREGA</Text>
-                    </TouchableOpacity>
-                </View>
                 {
-                    openModal && <Modal isOpen={openModal} closeModal={closeModal} isAvaliation={false}/>
+                    openModal && <Modal isOpen={openModal} closeModal={closeModal} isAvaliation={false} />
                 }
             </View>
         </View>
