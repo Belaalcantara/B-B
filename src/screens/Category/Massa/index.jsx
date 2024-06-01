@@ -7,7 +7,7 @@ function Massas() {
         <ScrollView>
             <View style={styles.container}>
                 <Image
-                    source={require('../../../../assets/logoSergel.png')}
+                    source={require('../../../../assets/sorvete2.jpg')}
                     style={styles.imgTopo}
                 />
                 <Text style={styles.restaurante}>Spoletto</Text>
