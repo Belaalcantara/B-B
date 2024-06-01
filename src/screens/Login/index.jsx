@@ -1,14 +1,16 @@
 import { View, ImageBackground, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Popup from "../../components/Popup";
 import Modal from "../../components/Modal";
+import { UserContext } from "../../userContext";
 
 export default function Login() {
 
     const navigation = useNavigation();
+    const { user, setUser } = useContext(UserContext);
 
     //popup
     const [popup, setPopup] = useState(false);
@@ -20,9 +22,6 @@ export default function Login() {
 
     //modal
     const [openModal, setOpenModal] = useState(false);
-
-    //user
-    const [user, setUser] = useState({ "name": "pedro", "email": "pedrormont@gmail.com", "password": "Pedro@4739" });
 
     const fetchUser = async () => {
         if (email.length == 0 || password.length == 0) {

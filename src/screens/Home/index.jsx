@@ -3,6 +3,8 @@ import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from "rea
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
 import styles from "./styles";
+import { useContext } from "react";
+import { UserContext } from "../../userContext";
 
 
 const carouselItems = [
@@ -16,6 +18,7 @@ const carouselItems = [
 
 export default function Home() {
   const navigation = useNavigation();
+  const { user } = useContext(UserContext);
   const { width: viewportWidth } = Dimensions.get('window');
 
   const renderItem = ({ item }) => (
@@ -33,13 +36,13 @@ export default function Home() {
             style={styles.imageperfil}
           />
           <View style={styles.infos}>
-            <Text style={styles.boasvindas}>Seja bem-vindo(a), novo cliente!</Text>
+            <Text style={styles.boasvindas}>{ user ? `Seja bem-vindo(a), ${user.name}` : 'Seja bem-vindo(a), novo cliente!' }</Text>
             <Text style={styles.textocinza}>Já realizou o seu pedido de hoje?</Text>
           </View>
         </View>
         <View style={styles.infosperfil}>
-          <Text style={styles.textonome}>nome</Text>
-          <Text style={styles.textoemail}>email</Text>
+          <Text style={styles.textonome}>{ user && user.name }</Text>
+          <Text style={styles.textoemail}>{ user && user.email }</Text>
         </View>
       </View>
 

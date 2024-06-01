@@ -1,15 +1,16 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Modal from "../../components/Modal";
+import { UserContext } from "../../userContext";
 
-export default function Orders({ route }) {
+export default function Orders() {
 
-    const { logged, user } = route.params;
+    const { user } = useContext(UserContext);
 
-    const [flag, setFlag] = useState(logged);
+    const [flag, setFlag] = useState(user);
     const [orders, setOrders] = useState();
 
     const [openModal, setOpenModal] = useState(false);
@@ -52,9 +53,9 @@ export default function Orders({ route }) {
             <Text style={styles.title}>pedidos</Text>
             <View style={styles.orders}>
                 {
-                    flag ? (
+                    flag != null ? (
                         <View>
-                            <Text>{orders.total || null}</Text>
+                            <Text>{orders.total}</Text>
                             <View style={styles.unique}>
                                 <Image />
                                 <View style={styles.content}>
