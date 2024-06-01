@@ -1,10 +1,10 @@
-
-import { View, ImageBackground, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, ImageBackground, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Popup from "../../components/Popup";
+import Modal from "../../components/Modal";
 
 export default function Login() {
 
@@ -18,30 +18,32 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    //modal
+    const [openModal, setOpenModal] = useState(false);
+
     //user
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({ "name": "pedro", "email": "pedrormont@gmail.com", "password": "Pedro@4739" });
 
     const fetchUser = async () => {
-        if(email.length == 0 || password.length == 0) {
+        if (email.length == 0 || password.length == 0) {
             setPopup(true);
             setContent('Complete os campos');
             setTimeout(() => {
                 setPopup(false);
             }, 3000);
             return false;
-        } 
+        }
 
         try {
             const response = await axios.get(`http://localhost:4000/users/${email}`);
-            const user = response.data;
-            if (!user.email) {
-                if (password == user.password) {
-                    navigation.navigate('Home');
-                    setUser(user);
-                } else {
-                    setPopup(true);
-                    setContent('Erro! Senha incorreta');
-                }
+            const userDB = response.data;
+            if (userDB.password == password) {
+                setUser(userDB);
+                console.log(user);
+                navigation.navigate('Home');
+            } else {
+                setPopup(true);
+                setContent('Erro! Senha incorreta');
             }
         } catch (e) {
             console.log('Erro interno de servidor', e);
@@ -58,13 +60,34 @@ export default function Login() {
         navigation.navigate('Register');
     }
 
+    const addAdress = () => {
+        setOpenModal(true);
+    }
+    
+    const closeModal = () => {
+        setOpenModal(false);
+    }
 
     return (
         <View style={styles.container}>
             {
                 user ? (
                     <View style={styles.logged}>
-                        
+                        <Text style={{ textTransform: 'uppercase', color: 'white', fontSize: 30, fontWeight: 'bold' }}>{user.name}</Text>
+                        <View style={styles.img}>
+                            <Image source={require('../../../assets/bk.jpg')} style={styles.profileImage} />
+                            <Text style={{ margin: 7, color: 'white' }}>email: {user.email}</Text>
+                        </View>
+                        <View style={styles.functions}>
+                            <View style={styles.card}>
+                                <TouchableOpacity onPress={addAdress}>
+                                    <Text style={{ fontSize: 25 }}> ❯ ENDEREÇO</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        {
+                            openModal && <Modal isOpen={openModal} closeModal={closeModal} isAvaliation={false} />
+                        }
                     </View>
                 ) : (
                     <View>
@@ -97,6 +120,7 @@ export default function Login() {
                                 {
                                     popup && <Popup type={content} />
                                 }
+
                             </View>
                         </View>
                     </View>

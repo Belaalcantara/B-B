@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        minWidth: '100%',
+        minHeight: '100%'
     },
 
     background: {
@@ -81,7 +83,45 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 8,
         elevation: 4,
+    },
 
+    logged: {
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: '#681111',
+        height: '100%',
+        width: '100%',
+        padding: 20
+    },
+
+    img: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    profileImage: {
+        width: 120,
+        height: 120,
+        borderRadius: 70,
+        marginBottom: 10,
+        borderColor: 'white',
+        borderWidth: 1
+      },
+
+    functions: {
+        margin: 10,
+        padding: 20,
+        width: '90%',
+        display: 'flex',
+        alignItems: 'center'
+    },
+
+    card: {
+        backgroundColor: 'white',
+        width: '100%',
+        padding: 10,
+        borderRadius: 12
     }
 });
 

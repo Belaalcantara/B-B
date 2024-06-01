@@ -75,7 +75,6 @@ const DrawerRoutes = () => {
             />
           ),
           drawerLabel: "Pedidos",
-          drawerLabel: "RestaurantesPizza",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}

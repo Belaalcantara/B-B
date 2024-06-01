@@ -34,9 +34,13 @@ export default function Orders({ route }) {
     const toLogin = () => {
         navigation.navigate('Login');
     }
+
+    const closeModal = () => {
+        setOpenModal(false);
+    }
     
     const addAdress = () => {
-        if(true) {
+        if(flag) {
             setOpenModal(true);
         } else {
             toLogin();
@@ -75,7 +79,7 @@ export default function Orders({ route }) {
                     </TouchableOpacity>
                 </View>
                 {
-                    openModal && <Modal isOpen={openModal} isAvaliation={false}/>
+                    openModal && <Modal isOpen={openModal} closeModal={closeModal} isAvaliation={false}/>
                 }
             </View>
         </View>
