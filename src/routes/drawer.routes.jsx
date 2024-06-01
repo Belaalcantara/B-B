@@ -1,7 +1,9 @@
 import React from 'react';
+import { useContext } from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
+import { userContext } from '../userContext';
 
 import Home from "../screens/Home";
 import SobreNos from "../screens/SobreNos";
@@ -21,12 +23,13 @@ import RestaurantesPizza from '../screens/Category/Pizza';
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = (props) => {
+  const { user } = useContext(userContext);
   return (
     <ImageBackground source={require("../../assets/fundodrawer.png")} style={styles.background}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerHeader}>
           <Image source={require("../../assets/igicon.png")} style={styles.profileImage} />
-          <Text style={styles.profileText}>Nome</Text>
+          <Text style={styles.profileText}>{user ? user.name : 'Nome'}</Text>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -66,7 +69,6 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Orders"
         component={Orders}
-        initialParams={{ logged: false, user: null }}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
