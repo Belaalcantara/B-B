@@ -16,6 +16,7 @@ import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
 import RestaurantesPizza from '../screens/Category/Pizza';
+import RestaurantesMarmita from '../screens/Category/Marmita';
 
 
 const Drawer = createDrawerNavigator();
@@ -229,6 +230,7 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
       <Drawer.Screen
         name="Register"
         component={Register}
@@ -242,6 +244,24 @@ const DrawerRoutes = () => {
             />
           ),
           drawerLabel: "Cadastre-se",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="RestaurantesMarmita"
+        component={RestaurantesMarmita}
+        options={{
+          headerShown: false,
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Marmitas",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
