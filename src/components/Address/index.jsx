@@ -23,8 +23,6 @@ const RegisterAddress = ({ onClose }) => {
         if (cep.length == 8) {
             try {
                 const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-                console.log(response.data);
-                setData(response.data);
                 setStreet(response.data.logradouro);
                 setNeighborhood(response.data.bairro);
                 setCity(response.data.localidade);
@@ -42,10 +40,11 @@ const RegisterAddress = ({ onClose }) => {
         let state = oldState.toUpperCase();
         console.log(user.address);
         if(user.address == null) {
-            console.log(typeof state, typeof city, typeof neighborhood, typeof number, typeof complement, typeof cep, typeof street, typeof email);
-            await axios.post(`http://localhost:4000/address`, { state, city, neighborhood, number, complement, cep, street, email });
+            const response = await axios.post(`http://localhost:4000/address`, { state, city, neighborhood, number, complement, cep, street, email });
+            setData(response.data.message);
         } else {
             await axios.put(`http://localhost:4000/address/${user.address}`, { state, city, neighborhood, number, complement, cep, street, email });
+            setData(response.data.message);
         }
         onClose();
     }
@@ -89,6 +88,7 @@ const RegisterAddress = ({ onClose }) => {
                 <TouchableOpacity style={styles.btn} onPress={addAddress}>
                     <Text style={{fontSize: 20, color: 'white'}}>Adicionar endereço</Text>
                 </TouchableOpacity>
+                <Text>{data}</Text>
             </View>
         </View>
     );
