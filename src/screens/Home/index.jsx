@@ -22,7 +22,7 @@ export default function Home() {
   const { width: viewportWidth } = Dimensions.get('window');
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate(item.navigateTo, {type: item.type})}>
+    <TouchableOpacity onPress={() => navigation.navigate('Restaurantes', {type: item.type})}>
       <Image source={item.image} style={styles.image} resizeMode="cover" />
     </TouchableOpacity>
   );

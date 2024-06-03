@@ -170,7 +170,7 @@ const DrawerRoutes = () => {
       />
 
       <Drawer.Screen
-        name="Restaurants"
+        name="Restaurantes"
         component={Restaurantes}
         initialParams={{ type: null }}
         options={{

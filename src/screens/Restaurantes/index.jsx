@@ -11,10 +11,19 @@ export default function Restaurantes({ route }) {
     const { type } = route.params;
     const [restaurants, setRestaurants] = useState(null);
 
+    console.log(restaurants);
+
     const fetchRestaurantByType = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/restaurants/type/${type}`);
-            setRestaurants(response.data);
+            const response = await fetch(`http://localhost:4000/restaurants/type/${type}`);
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            
+            const data = await response.json();
+            console.log(data);
+            setRestaurants(data);
         } catch (e) {
             console.log('Error in requisition', e);
             throw e;
@@ -23,7 +32,7 @@ export default function Restaurantes({ route }) {
 
     useEffect(() => {
         fetchRestaurantByType();
-    }, [type]);
+    }, [type])
 
     const goToRestaurant = (restaurant) => {
         navigation.navigate('Pgpratos', { id: restaurant });
@@ -33,18 +42,23 @@ export default function Restaurantes({ route }) {
         <ScrollView>
             <View style={styles.container}>
                 {
-                    restaurants.map((restaurant) => (
-                        <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)}>
-                            <View style={styles.card}>
-                                <Image source={{ uri: restaurant.image }} />
-                                <View style={styles.infos}>
-                                    <Text style={styles.titulo}>{restaurant.name}</Text>
-                                    <Text style={styles.texto}>{restaurant.operation}</Text>
+                    restaurants !== null ? (
+                        restaurants.map((restaurant) => (
+                            <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)}>
+                                <View style={styles.card}>
+                                    <Image source={{ uri: restaurant.image }} />
+                                    <View style={styles.infos}>
+                                        <Text style={styles.titulo}>{restaurant.name}</Text>
+                                        <Text style={styles.texto}>{restaurant.operation}</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
-                    ))
+                            </TouchableOpacity>
+                        ))
+                    ) : (
+                        null
+                    )
                 }
+
             </View>
         </ScrollView>
     )
