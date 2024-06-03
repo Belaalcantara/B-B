@@ -7,17 +7,11 @@ import { UserContext } from '../userContext';
 
 import Home from "../screens/Home";
 import SobreNos from "../screens/SobreNos";
-import Category from "../screens/Category";
-import Login from "../screens/Login";
 import Register from "../screens/Cadastro";
-import Sorveterias from '../screens/Category/sorveteria';
-import Massas from '../screens/Category/Massa';
-import Restaurantes from '../screens/Category/Massa/Restaurantes';
-import Japonesa from '../screens/Category/Japonesa'
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
-import RestaurantesPizza from '../screens/Category/Pizza';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -85,23 +79,6 @@ const DrawerRoutes = () => {
       />
 
 
-      <Drawer.Screen
-        name="Massas"
-        component={Massas}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="home"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Massa",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
 
       <Drawer.Screen
         name="SobreNos"
@@ -122,40 +99,6 @@ const DrawerRoutes = () => {
       />
 
 
-      <Drawer.Screen
-        name="Sorveterias"
-        component={Sorveterias}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="users"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Equipe B&B",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-      <Drawer.Screen
-        name="Japonesa"
-        component={Japonesa}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="users"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Comida Japonesa",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
 
       <Drawer.Screen
         name="Comentarios"
@@ -196,40 +139,7 @@ const DrawerRoutes = () => {
 
 
 
-      <Drawer.Screen
-        name="Category"
-        component={Category}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="list"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Categorias",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-      <Drawer.Screen
-        name="Login"
-        component={Login}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="user"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Login",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
+     
       <Drawer.Screen
         name="Register"
         component={Register}
