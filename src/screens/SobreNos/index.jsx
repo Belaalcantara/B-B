@@ -1,7 +1,7 @@
 import { Text, View, Image } from "react-native";
 import styles from "./styles";
 import { ScrollView } from "react-native-web";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons"
 
 export default function SobreNos() {
     return (
