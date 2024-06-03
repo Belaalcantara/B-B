@@ -18,6 +18,7 @@ import Restaurantes from '../screens/Restaurantes';
 
 
 
+
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = ({ user, ...props }) => {
@@ -84,6 +85,26 @@ const DrawerRoutes = () => {
 
 
 
+<Drawer.Screen
+        name="Cadastro"
+        component={Register}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Cadastro"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Cadastro",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+
+
       <Drawer.Screen
         name="SobreNos"
         component={SobreNos}
@@ -97,45 +118,6 @@ const DrawerRoutes = () => {
             />
           ),
           drawerLabel: "Equipe B&B",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-
-
-      <Drawer.Screen
-        name="Comentarios"
-        component={Comentarios}
-        initialParams={{ comentario: 'oiiii', edit: false }}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="Comentarios"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Faça um comentário",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-      <Drawer.Screen
-        name="RendComent"
-        component={RendComent}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="Comentarios"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Comentários",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
