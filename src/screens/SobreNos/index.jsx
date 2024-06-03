@@ -1,7 +1,7 @@
 import { Text, View, Image } from "react-native";
 import styles from "./styles";
 import { ScrollView } from "react-native-web";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons"
 
 export default function SobreNos() {
     return (
@@ -31,14 +31,14 @@ export default function SobreNos() {
                 <View style={styles.text}>
                     <View style={styles.equipe}>
                             <View style={styles.imagem}>
-                                <Image source={require("../../../assets/nicolly.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 30  }} />
+                                <Image source={require("../../../assets/nicolly.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 30  }} />
                             </View>
                             <View style={styles.viewnome}>
                                 <Text style={styles.name}> Nicolly Isabeli</Text>
                             </View>
                             <View style={styles.icons}>
-                                <a href="https://github.com/santnii?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                                <a href="http://github.com/santnii"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="https://github.com/santnii?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000" /></a>
+                                <a href="http://github.com/santnii"><Feather name="github" size={30} color="#D20000" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é uma aluna do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
@@ -48,14 +48,14 @@ export default function SobreNos() {
 
                     <View style={styles.equipe}>
                         <View style={styles.imagem}>
-                            <Image source={require("../../../assets/isa.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 50 }} />
+                            <Image source={require("../../../assets/isa.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 50 }} />
                         </View>
-                        <View style={styles.viewnome}>
+                        <View style={styles.viewnome1}>
                             <Text style={styles.name}> Isabela Alcântara</Text>
                         </View>
                         <View style={styles.icons}>
-                            <a href="http://www.instagram.com/_alcantaraa_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                            <a href="http://github.com/Belaalcantara"><Feather name="github" size={30} color="#D96704" /></a>
+                            <a href="http://www.instagram.com/_alcantaraa_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000" /></a>
+                            <a href="http://github.com/Belaalcantara"><Feather name="github" size={30} color="#D20000" /></a>
                         </View>
                         <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 18 anos, é uma aluna do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
@@ -65,14 +65,14 @@ export default function SobreNos() {
 
                     <View style={styles.equipe}>
                             <View style={styles.imagem}>
-                                <Image source={require("../../../assets/ana.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 50  }} />
+                                <Image source={require("../../../assets/ana.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 50  }} />
                             </View>
                             <View style={styles.viewnome}>
                                 <Text style={styles.name}>Ana Júlia Pontes</Text>
                             </View>
                             <View style={styles.icons}>
-                                <a href="http://www.instagram.com/anajupontess_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                                <a href="http://github.com/aninha306"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="http://www.instagram.com/anajupontess_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000" /></a>
+                                <a href="http://github.com/aninha306"><Feather name="github" size={30} color="#D20000" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é uma aluna do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
@@ -82,14 +82,14 @@ export default function SobreNos() {
 
                     <View style={styles.equipe}>
                             <View style={styles.imagem}>
-                                <Image source={require("../../../assets/manu.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 50  }} />
+                                <Image source={require("../../../assets/manu.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 50  }} />
                             </View>
                             <View style={styles.viewnome}>
                                 <Text style={styles.name}>Manuela Queiroz</Text>
                             </View>
                             <View style={styles.icons}>
-                                <a href="http://www.instagram.com/manuumqm?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                                <a href="http://github.com/manuumqm"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="http://www.instagram.com/manuumqm?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000" /></a>
+                                <a href="http://github.com/manuumqm"><Feather name="github" size={30} color="#D20000" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é uma aluna do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
@@ -99,14 +99,14 @@ export default function SobreNos() {
 
                     <View style={styles.equipe}>
                             <View style={styles.imagem}>
-                                <Image source={require("../../../assets/pedro.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 50  }} />
+                                <Image source={require("../../../assets/pedro.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 50  }} />
                             </View>
                             <View style={styles.viewnome}>
                                 <Text style={styles.name}>Pedro Monteiro</Text>
                             </View>
                             <View style={styles.icons}>
-                                <a href="http://www.instagram.com/monteiropedro__?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704" /></a>
-                                <a href="http://github.com/pedromonteir01"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="http://www.instagram.com/monteiropedro__?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000" /></a>
+                                <a href="http://github.com/pedromonteir01"><Feather name="github" size={30} color="#D20000" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é um aluno do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
@@ -116,14 +116,14 @@ export default function SobreNos() {
 
                     <View style={styles.equipe}>
                             <View style={styles.imagem}>
-                                <Image source={require("../../../assets/miotto.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 90, marginTop: 50  }} />
+                                <Image source={require("../../../assets/miotto.jpg")} style={{ borderRadius: 100, margin: 10, width: 200, height: 200, marginLeft: 80, marginTop: 50  }} />
                             </View>
-                            <View style={styles.viewnome}>
+                            <View style={styles.viewnome2}>
                                 <Text style={styles.name}>Felipe Miotto</Text>
                             </View>
                             <View style={styles.icons}>
-                                <a href="http://www.instagram.com/_alcantaraa_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D96704"/></a>
-                                <a href="http://github.com/miottofelipee"><Feather name="github" size={30} color="#D96704" /></a>
+                                <a href="http://www.instagram.com/_alcantaraa_?igsh=MWtwMGJlM2JlcnB2cQ=="> <Feather name="instagram" size={30} color="#D20000"/></a>
+                                <a href="http://github.com/miottofelipee"><Feather name="github" size={30} color="#D20000" /></a>
                             </View>
                             <View style={styles.desc}>
                                 <Text style={styles.textdesc}>Tem 17 anos, é um aluno do Senai Valinhos no curso de Desenvolvimento de Sistemas, onde exerce várias atividades diárias. 
