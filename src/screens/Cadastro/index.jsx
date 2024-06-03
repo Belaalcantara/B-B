@@ -1,9 +1,10 @@
 import { View, Text, ImageBackground, TouchableOpacity, TextInput } from "react-native";
-import styles from "./styles";
+
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import axios from "axios";
 import Popup from "../../components/Popup";
+import styles from './styles';
 
 export default function Register() {
     const navigation = useNavigation();
@@ -48,20 +49,21 @@ export default function Register() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/White and Red Minimalist Promotion Burger Food Instagram Story (1) (1).png')} resizeMode="cover" style={styles.background} />
+                        <ImageBackground source={require('../../../assets/White and Red Minimalist Promotion Burger Food Instagram Story (1) (1).png')} resizeMode="cover" style={styles.background} />
+
             <View style={styles.form}>
-                <Text style={styles.title}>Faça seu login!</Text>
+                <Text style={styles.title}>Faça seu cadastro!</Text>
                 <View style={styles.content}>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>Nome:</Text>
-                        <TextInput
+                        <TextInput style={styles.inpt}
                             value={name}
                             onChangeText={setName}
                         />
                     </View>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>Email:</Text>
-                        <TextInput
+                        <TextInput style={styles.inpt}
                             value={email}
                             onChangeText={setEmail}
                             keyboardType="email-address"
@@ -69,21 +71,21 @@ export default function Register() {
                     </View>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>CPF:</Text>
-                        <TextInput
+                        <TextInput style={styles.inpt}
                             value={cpf}
                             onChangeText={setCpf}
                         />
                     </View>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>Telefone:</Text>
-                        <TextInput
+                        <TextInput style={styles.inpt}
                             value={telephone}
                             onChangeText={setTelephone}
                         />
                     </View>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>Senha:</Text>
-                        <TextInput
+                        <TextInput style={styles.inpt}
                             value={password}
                             onChangeText={setPassword}
                         />
