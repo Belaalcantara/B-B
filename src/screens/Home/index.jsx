@@ -48,17 +48,17 @@ export default function Home() {
 
       <Text style={styles.categorias}>Categorias</Text>
 
+<View style={styles.categorias1}>
       <Carousel
         data={carouselItems}
         renderItem={renderItem}
         sliderWidth={viewportWidth}
         itemWidth={100}
         layout={'default'}
-        style={styles.categorias1}
         activeSlideAlignment="start"
         activeSlideOffset={"start"}
       />
-
+</View>
       <View style={styles.blocofome}>
         <Text style={styles.text}>Como está sua fome hoje?</Text>
         <View style={styles.carinhas}>

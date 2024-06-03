@@ -64,7 +64,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   categorias1: {
-    flex: 'row'
+    flex: 'row',
+    alignItems: "center",
+    marginLeft: 20, 
   },
 
 

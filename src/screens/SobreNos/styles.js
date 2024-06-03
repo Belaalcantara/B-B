@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     height: 65
   },
   text: {
-    fontSize: 25,
+    fontSize: 26,
     color: "#D20000",
     textAlign: "center",
     margin: 10
@@ -49,22 +49,32 @@ const styles = StyleSheet.create({
   viewnome: {
     textAlign: "center",
     marginBottom: 10,
-    marginLeft: 110
+    marginLeft: 100
   },
   name: {
     fontSize: 23,
-    color: "#D96704"
+    color: "#D20000"
+  },
+  viewnome1: {
+    textAlign: "center",
+    marginBottom: 10,
+    marginLeft: 88
+  },
+  viewnome2: {
+    textAlign: "center",
+    marginBottom: 10,
+    marginLeft: 111
   },
   icons:{
    flexDirection: "row",
    gap: 5, 
-   marginLeft:155 
+   marginLeft:148
   }, 
   equipe: {
     backgroundColor: "white",
     margin: 10,
     borderRadius: 15,
-    width: 380,
+    width: 350,
   },
   textdesc: {
     textAlign:"center", 
