@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     backgroundColor: '#fff',
     borderRadius: 20,
+  },
+
+  btn: {
+    display: 'flex',
+    alignItems: 'center'
   }
 
 })

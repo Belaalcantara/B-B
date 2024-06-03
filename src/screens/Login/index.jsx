@@ -61,6 +61,10 @@ export default function Login() {
     const addAdress = () => {
         setOpenModal(true);
     }
+
+    const logoff = () => {
+        setUser(null);
+    }
     
     const closeModal = () => {
         setOpenModal(false);
@@ -80,6 +84,9 @@ export default function Login() {
                             <View style={styles.card}>
                                 <TouchableOpacity onPress={addAdress}>
                                     <Text style={{ fontSize: 25 }}> ❯ ENDEREÇO</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={logoff}>
+                                    <Text style={{ fontSize: 25 }}> ❯ SAIR</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

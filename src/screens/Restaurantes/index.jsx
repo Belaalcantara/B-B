@@ -1,20 +1,50 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
-import { ScrollView } from "react-native-web";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 
-export default function RestaurantesPizza() {
+export default function Restaurantes({ route }) {
+    const navigation = useNavigation();
+
+    const { type } = route.params;
+    const [restaurants, setRestaurants] = useState(null);
+
+    const fetchRestaurantByType = async () => {
+        try {
+            const response = await axios.get(`http://localhost:4000/restaurants/type/${type}`);
+            setRestaurants(response.data);
+        } catch (e) {
+            console.log('Error in requisition', e);
+            throw e;
+        }
+    }
+
+    useEffect(() => {
+        fetchRestaurantByType();
+    }, [type]);
+
+    const goToRestaurant = (restaurant) => {
+        navigation.navigate('Pgpratos', { id: restaurant });
+    }
+
     return (
         <ScrollView>
             <View style={styles.container}>
-                <View style={styles.card}>
-                    <Image/>
-                    <View style={styles.infos}>
-                    <Text style={styles.titulo}></Text>
-                    <Text style={styles.texto}></Text>
-                    </View>
-
-                </View>
+                {
+                    restaurants.map((restaurant) => (
+                        <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)}>
+                            <View style={styles.card}>
+                                <Image source={{ uri: restaurant.image }} />
+                                <View style={styles.infos}>
+                                    <Text style={styles.titulo}>{restaurant.name}</Text>
+                                    <Text style={styles.texto}>{restaurant.operation}</Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+                    ))
+                }
             </View>
         </ScrollView>
     )

@@ -11,12 +11,16 @@ import Register from "../screens/Cadastro";
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
+import Pgpratos from '../screens/Pgpratos';
+import Logins from '../screens/Login'
+import Login from '../screens/Login';
+import Restaurantes from '../screens/Restaurantes';
 
 
 
 const Drawer = createDrawerNavigator();
 
-const CustomDrawerContent = ({user, ...props}) => {
+const CustomDrawerContent = ({ user, ...props }) => {
   return (
     <ImageBackground source={require("../../assets/fundodrawer.png")} style={styles.background}>
       <DrawerContentScrollView {...props}>
@@ -137,24 +141,53 @@ const DrawerRoutes = () => {
         }}
       />
 
-
-
-     
       <Drawer.Screen
-        name="Register"
-        component={Register}
+        name="Login"
+        component={Login}
         options={{
-          headerShown: false,
+          headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="user"
+              name='user'
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: "Cadastre-se",
+          drawerLabel: user ? 'Perfil' : 'Login',
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="Register"
+        component={Register}
+        options={{
+          drawerItemStyle: {
+            display: 'none'
+          }
+        }}
+      />
+
+      <Drawer.Screen
+        name="Restaurants"
+        component={Restaurantes}
+        initialParams={{ type: null }}
+        options={{
+          drawerItemStyle: {
+            display: 'none'
+          }
+        }}
+      />
+
+      <Drawer.Screen
+        name="Pgpratos"
+        component={Pgpratos}
+        initialParams={{ id: null }}
+        options={{
+          drawerItemStyle: {
+            display: 'none'
+          }
         }}
       />
     </Drawer.Navigator>
