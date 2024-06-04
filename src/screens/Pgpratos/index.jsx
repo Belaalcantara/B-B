@@ -30,7 +30,7 @@ function Pgpratos({ route }) {
 
     const addInOrder = async() => {
         try {
-            const response = await axios.post(`http://localhost:4000/cart/${user.email}`, {  });
+            const response = await axios.post(`http://localhost:4000/cart/${user.email}`, { state: 'cart' });
             setOrderId(response.data);
         } catch(e) {
             console.log('Error in requisition' , e);

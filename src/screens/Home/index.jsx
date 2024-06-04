@@ -11,7 +11,7 @@ const carouselItems = [
   { title: 'Massas', image: require('../../../assets/Massas.png'), navigateTo: 'Massas' },
   { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), navigateTo: 'Sorveterias' },
   { title: 'Asiáticas', image: require('../../../assets/Asiáticas.png'), navigateTo: 'Asiaticas' },
-  { title: 'Fastfood', image: require('../../../assets/fastfood.png'), navigateTo: 'Restaurants', type: 'FAST-FOOD' },
+  { title: 'Fastfood', image: require('../../../assets/fastfood.png'), type: 'FAST-FOOD' },
   { title: 'Marmitex', image: require('../../../assets/Marmitex.png'), navigateTo: 'Marmitex' },
   { title: 'Pizzarias', image: require('../../../assets/Pizzarias.png'), navigateTo: 'Pizzarias' }
 ];
@@ -22,7 +22,7 @@ export default function Home() {
   const { width: viewportWidth } = Dimensions.get('window');
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Restaurantes', {type: item.type})}>
+    <TouchableOpacity onPress={() => navigation.navigate('Restaurantes', { type: item.type })}>
       <Image source={item.image} style={styles.image} resizeMode="cover" />
     </TouchableOpacity>
   );
