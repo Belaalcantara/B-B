@@ -44,7 +44,7 @@ export default function Restaurantes({ route }) {
                 {
                     restaurants !== null ? (
                         restaurants.map((restaurant) => (
-                            <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)}>
+                            <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)} key={restaurant.id}>
                                 <View style={styles.card}>
                                     <Image source={{ uri: restaurant.image }} />
                                     <View style={styles.infos}>

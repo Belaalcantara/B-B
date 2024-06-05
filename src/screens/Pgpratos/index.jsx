@@ -15,11 +15,21 @@ function Pgpratos({ route }) {
     const [products, setProducts] = useState([]);
     const [orderId, setOrderId] = useState(null);
     const [itens, setItens] = useState([]);
+    const [orders, setOrders] = useState(null);
 
     useEffect(() => {
         fetchRestaurant();
         getProducts(id);
-    }, [id]);
+    }, []);
+
+    const verifyUserHaveAOrder = async(req, res) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/cart/user/${user.email}`)
+            return response.data;
+        } catch(e) {
+            console.log('error in requisition', e);
+        }
+    }
 
     const fetchRestaurant = async () => {
         try {
@@ -48,12 +58,15 @@ function Pgpratos({ route }) {
     const addInCart = async (product, quantity) => {
         const newItens = [...itens, { productid: product.id, quantity }];
         setItens(newItens);
-
         try {
+            if(orders) {
+                return orders.order_state == 'cart' && orders.restaurant_name !== restaurant.name ? (true) : (false);
+            }
             if (!orderId) {
                 await createOrder();
+            } else {
+                await axios.put(`http://localhost:4000/cart/${orderId}`, { itens: newItens, state: 'cart' });
             }
-            await axios.put(`http://localhost:4000/cart/${orderId}`, { itens: newItens, state: 'cart' });
         } catch (e) {
             console.log('Error in requisition', e);
         }
@@ -87,36 +100,38 @@ function Pgpratos({ route }) {
         }
     };
 
+    console.log(products.products);
+
     return (
-        user ? (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.margem}>
-                        {restaurant && (
-                            <>
-                                <Image source={{ uri: restaurant.image }} style={styles.image} />
-                                <Text style={styles.restaurante}>{restaurant.name}</Text>
-                                <Text style={styles.subInfo1}>Horário de funcionamento: {restaurant.operation}</Text>
-                            </>
-                        )}
-                    </View>
-                    <View style={styles.cardContainerGeral}>
-                        {products.length ? (
-                            products.map((product) => (
-                                <Products key={product.id} data={product} addInCart={addInCart} />
-                            ))
-                        ) : (
-                            <Text>Loading products...</Text>
-                        )}
-                    </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={styles.margem}>
+                    {restaurant ? (
+                        <>
+                            <Image source={{ uri: restaurant.image }} style={styles.image} />
+                            <Text style={styles.restaurante}>{restaurant.name}</Text>
+                            <Text style={styles.subInfo1}>Horário de funcionamento: {restaurant.operation}</Text>
+                        </>
+                    ) : (
+                        <Text>Loading restaurant...</Text>
+                    )}
+                </View>
+                <View style={styles.cardContainerGeral}>
+                    {products.Products ? (
+                        products.products.map((product) => (
+                            <Products key={product.id} data={product} addInCart={addInCart} />
+                        ))
+                    ) : (
+                        <Text>Loading products...</Text>
+                    )}
+                </View>
+                {itens.length > 0 && (
                     <TouchableOpacity onPress={finishOrder}>
                         <Text>Finalizar pedido</Text>
                     </TouchableOpacity>
-                </View>
-            </ScrollView>
-        ) : (
-            <Text>NOT FOUND</Text>
-        )
+                )}
+            </View>
+        </ScrollView>
     );
 }
 
