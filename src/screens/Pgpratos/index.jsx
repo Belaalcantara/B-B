@@ -20,16 +20,19 @@ function Pgpratos({ route }) {
     useEffect(() => {
         fetchRestaurant();
         getProducts(id);
+        if(user) {
+            checkUserOrder();
+        }
     }, []);
 
-    const verifyUserHaveAOrder = async(req, res) => {
+    const checkUserOrder = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/cart/user/${user.email}`)
-            return response.data;
-        } catch(e) {
-            console.log('error in requisition', e);
+            const response = await axios.get(`http://localhost:4000/cart/user/${user.email}`);
+            setOrders(response.data);
+        } catch (e) {
+            console.log('Error in requisition', e);
         }
-    }
+    };
 
     const fetchRestaurant = async () => {
         try {
@@ -55,13 +58,16 @@ function Pgpratos({ route }) {
         }
     };
 
+    console.log(new Date());
+
     const addInCart = async (product, quantity) => {
         const newItens = [...itens, { productid: product.id, quantity }];
         setItens(newItens);
         try {
-            if(orders) {
-                return orders.order_state == 'cart' && orders.restaurant_name !== restaurant.name ? (true) : (false);
+            if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
+                return false;
             }
+
             if (!orderId) {
                 await createOrder();
             } else {
@@ -100,26 +106,24 @@ function Pgpratos({ route }) {
         }
     };
 
-    console.log(products.products);
-
     return (
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.margem}>
                     {restaurant ? (
-                        <>
+                        <View>
                             <Image source={{ uri: restaurant.image }} style={styles.image} />
                             <Text style={styles.restaurante}>{restaurant.name}</Text>
                             <Text style={styles.subInfo1}>Horário de funcionamento: {restaurant.operation}</Text>
-                        </>
+                        </View>
                     ) : (
                         <Text>Loading restaurant...</Text>
                     )}
                 </View>
                 <View style={styles.cardContainerGeral}>
-                    {products.Products ? (
+                    {products.products ? (
                         products.products.map((product) => (
-                            <Products key={product.id} data={product} addInCart={addInCart} />
+                            <Products key={product.id} data={product} addInCart={addInCart} loggon={user} />
                         ))
                     ) : (
                         <Text>Loading products...</Text>
