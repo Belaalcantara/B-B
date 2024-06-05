@@ -1,18 +1,19 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
-const Products = ({ data }) => {
+const Products = ({ data, addInCart }) => {
     return (
         <View style={styles.cardContainer}>
             <View style={styles.cards}>
-                <Image />
+                <Image source={{uri: data.image}} />
                 <View style={styles.infos}>
-                    <Text style={styles.nomePrato}></Text>
-                    <Text style={styles.precoPrato}> </Text>
+                    <Text style={styles.nomePrato}>{data.name}</Text>
+                    <Text style={styles.precoPrato}>{data.price}</Text>
                 </View>
             </View>
-            <Text style={styles.desc}></Text>
-            <Text style={styles.infosPrato1}>
-            </Text>
+            <Text style={styles.desc}>{data.description}</Text>
+            <TouchableOpacity onPress={addInCart}>
+                <Text>Adicionar no carrinho</Text>
+            </TouchableOpacity>
         </View>
     );
 }
