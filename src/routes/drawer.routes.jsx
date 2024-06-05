@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// importação de todas as rotas
 
 import BoasVindas1 from "../screens/BoasVindas1";
 import BoasVindas2 from "../screens/BoasVindas2";
@@ -19,6 +22,15 @@ import Orders from '../screens/Pedidos';
 import Register from '../screens/Cadastro';
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+const BoasVindas1Stack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='BoasVindas1' component={BoasVindas1} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
 
 const CustomDrawerContent = (props) => {
   return (
@@ -47,8 +59,20 @@ const DrawerRoutes = () => {
     >
 
       <Drawer.Screen
+        name='BoasVindas1Stack'
+        component={BoasVindas1Stack}
+        options={{
+          drawerLabel: 'BoasVindas1',
+          drawerItemStyle: { display: 'none' }
+        }}
+      />
+
+      {/*  telas de tutoriais  */}
+
+      {/* <Drawer.Screen
         name="BoasVindas1"
         component={BoasVindas1}
+        headerShown={false}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
@@ -58,12 +82,12 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerItemStyle: { display: 'none' },
           drawerLabel: "BoasVindas1",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
-      />
+      /> */}
 
       <Drawer.Screen
         name="BoasVindas2"
@@ -77,7 +101,7 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerItemStyle: { display: 'none' },
           drawerLabel: "BoasVindas2",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
@@ -96,12 +120,14 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerItemStyle: { display: 'none' },
           drawerLabel: "BoasVindas3",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+      {/*  rotas principais */}
 
       <Drawer.Screen
         name="Home"
