@@ -5,14 +5,15 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: '100%',
-        minHeight: '100%'
+      
+        
     },
 
     background: {
         height: '100vh',
         width: '100vw',
-        flex: 1
+        flex: 1,
+        
     },
 
     form: {
@@ -97,7 +98,8 @@ const styles = StyleSheet.create({
     img: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 30,
     },
 
     profileImage: {
