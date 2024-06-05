@@ -1,13 +1,17 @@
 import React from 'react';
-import { useContext } from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
-import { UserContext } from '../userContext';
+
+import BoasVindas1 from "../screens/BoasVindas1";
+import BoasVindas2 from "../screens/BoasVindas2";
+import BoasVindas3 from "../screens/BoasVindas3";
 
 import Home from "../screens/Home";
 import SobreNos from "../screens/SobreNos";
-import Register from "../screens/Cadastro";
+
+import Login from "../screens/Login";
+
 import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
@@ -15,18 +19,17 @@ import Pgpratos from '../screens/Pgpratos';
 import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
 
-
-
+import Register from '../screens/Cadastro';
 
 const Drawer = createDrawerNavigator();
 
-const CustomDrawerContent = ({ user, ...props }) => {
+const CustomDrawerContent = (props) => {
   return (
     <ImageBackground source={require("../../assets/fundodrawer.png")} style={styles.background}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerHeader}>
           <Image source={require("../../assets/igicon.png")} style={styles.profileImage} />
-          <Text style={styles.profileText}>{user ? user.name : 'Nome'}</Text>
+          <Text style={styles.profileText}>Nome</Text>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -35,10 +38,9 @@ const CustomDrawerContent = ({ user, ...props }) => {
 };
 
 const DrawerRoutes = () => {
-  const { user } = useContext(UserContext);
   return (
     <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawerContent {...props} user={user} />}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         headerShown: true,
         drawerStyle: {
@@ -46,6 +48,64 @@ const DrawerRoutes = () => {
         },
       }}
     >
+
+      <Drawer.Screen
+        name="BoasVindas1"
+        component={BoasVindas1}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerLabel: "BoasVindas1",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="BoasVindas2"
+        component={BoasVindas2}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerLabel: "BoasVindas2",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="BoasVindas3"
+        component={BoasVindas3}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerItemStyle: { display: 'none' }, // Alterado para drawerItemStyle
+          drawerLabel: "BoasVindas3",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
       <Drawer.Screen
         name="Home"
         component={Home}
@@ -63,46 +123,6 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
-
-      <Drawer.Screen
-        name="Orders"
-        component={Orders}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="list"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Pedidos",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-
-
-<Drawer.Screen
-        name="Cadastro"
-        component={Register}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="Cadastro"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Cadastro",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-
 
       <Drawer.Screen
         name="SobreNos"
@@ -123,54 +143,97 @@ const DrawerRoutes = () => {
       />
 
       <Drawer.Screen
-        name="Login"
-        component={Login}
+        name="Orders"
+        component={Orders}
         options={{
           headerTitle: "",
           drawerIcon: ({ focused }) => (
             <Feather
-              name='user'
+              name="users"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: user ? 'Perfil' : 'Login',
+          drawerLabel: "Pedidos",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
 
       <Drawer.Screen
-        name="Register"
+        name="Comentarios"
+        component={Comentarios}
+        initialParams={{ comentario: 'oiiii', edit: false }}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Comentarios"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Faça um comentário",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="RendComent"
+        component={RendComent}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Comentarios"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Comentários",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="Login"
+        component={Login}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Login",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      {/* Adicionando a tela de cadastro */}
+      <Drawer.Screen
+        name="Cadastro"
         component={Register}
         options={{
-          drawerItemStyle: {
-            display: 'none'
-          }
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user-plus"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Cadastro",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
         }}
       />
 
-      <Drawer.Screen
-        name="Restaurantes"
-        component={Restaurantes}
-        initialParams={{ type: null }}
-        options={{
-          drawerItemStyle: {
-            display: 'none'
-          }
-        }}
-      />
-
-      <Drawer.Screen
-        name="Pgpratos"
-        component={Pgpratos}
-        initialParams={{ id: null }}
-        options={{
-          drawerItemStyle: {
-            display: 'none'
-          }
-        }}
-      />
     </Drawer.Navigator>
   );
 };
@@ -203,4 +266,3 @@ const styles = StyleSheet.create({
 });
 
 export default DrawerRoutes;
-

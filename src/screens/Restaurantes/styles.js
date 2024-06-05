@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 
   infos: {
     margin: 20,
+    backgroundColor:"pink"
   },
 
   titulo: {
@@ -51,7 +52,19 @@ const styles = StyleSheet.create({
   btn: {
     display: 'flex',
     alignItems: 'center'
-  }
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 110,
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 
 })
 

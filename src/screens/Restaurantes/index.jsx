@@ -3,6 +3,7 @@ import styles from "./styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import {ActivityIndicator} from 'react-native';
 
 
 export default function Restaurantes({ route }) {
@@ -46,8 +47,10 @@ export default function Restaurantes({ route }) {
                         restaurants.map((restaurant) => (
                             <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)} key={restaurant.id}>
                                 <View style={styles.card}>
-                                    <Image source={{ uri: restaurant.image }} />
-                                    <View style={styles.infos}>
+                                    <View> 
+                                        <Image source={{ uri: restaurant.image }} />
+                                    <View style={styles.infos}></View>
+                                   
                                         <Text style={styles.titulo}>{restaurant.name}</Text>
                                         <Text style={styles.texto}>{restaurant.operation}</Text>
                                     </View>
@@ -55,7 +58,11 @@ export default function Restaurantes({ route }) {
                             </TouchableOpacity>
                         ))
                     ) : (
-                        null
+                        <View style={[styles.container, styles.horizontal]}>
+    
+                        <ActivityIndicator size="large" color="#dc341d"   style={[styles.container, styles.horizontal]} />
+                        
+                      </View>
                     )
                 }
 
