@@ -117,7 +117,7 @@ function Pgpratos({ route }) {
                     )}
                 </View>
                 <View style={styles.cardContainerGeral}>
-                    {products.Products ? (
+                    {products.products ? (
                         products.products.map((product) => (
                             <Products key={product.id} data={product} addInCart={addInCart} />
                         ))
