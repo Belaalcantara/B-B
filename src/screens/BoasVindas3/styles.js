@@ -13,13 +13,13 @@ container: {
 image: {
     flex: 1,
     width: "100vw",
-    height: "105vh"
+    height: "95vh"
 },
 
 imageButton: {
     width: 50,
     height: 50,
-    marginBottom: 2,
+    marginBottom: 80,
 }
 
 });
