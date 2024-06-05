@@ -1,19 +1,27 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import styles from "./styles";
 
-const Products = ({ data, addInCart }) => {
+const Products = ({ data, addInCart, loggon }) => {
     return (
         <View style={styles.cardContainer}>
             <View style={styles.cards}>
-                <Image source={{uri: data.image}} />
+                <Image source={{ uri: data.image }} />
                 <View style={styles.infos}>
                     <Text style={styles.nomePrato}>{data.name}</Text>
                     <Text style={styles.precoPrato}>{data.price}</Text>
                 </View>
             </View>
             <Text style={styles.desc}>{data.description}</Text>
-            <TouchableOpacity onPress={addInCart}>
-                <Text>Adicionar no carrinho</Text>
-            </TouchableOpacity>
+            {
+                loggon ? (
+                    <TouchableOpacity onPress={addInCart}>
+                        <Text>Adicionar no carrinho</Text>
+                    </TouchableOpacity>
+                ) :
+                    (
+                        null
+                    )
+            }
         </View>
     );
 }
