@@ -52,7 +52,7 @@ export default function Register() {
                         <ImageBackground source={require('../../../assets/White and Red Minimalist Promotion Burger Food Instagram Story (1) (1).png')} resizeMode="cover" style={styles.background} />
 
             <View style={styles.form}>
-                <Text style={styles.title}>Faça seu cadastro!</Text>
+                <Text style={styles.title}>Cadastre-se:</Text>
                 <View style={styles.content}>
                     <View style={styles.inputfield}>
                         <Text style={styles.label}>Nome:</Text>
