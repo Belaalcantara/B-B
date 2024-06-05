@@ -13,6 +13,8 @@ function Pgpratos({ route }) {
 
     const [restaurant, setRestaurant] = useState(null);
     const [orderId, setOrderId] = useState(null);
+    //USAR DATEPICKER
+    const [date, setDate] = useState();
 
     const fetchRestaurant = async () => {
         try {
@@ -28,10 +30,24 @@ function Pgpratos({ route }) {
         fetchRestaurant();
     }, [id]);
 
-    const addInOrder = async() => {
+    const createOrder = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/cart/${user.email}`, { state: 'cart' });
-            setOrderId(response.data);
+            const response = await axios.post(`http://localhost:4000/cart`, {
+                userEmail: user.email,
+                restaurantID: id,
+                dateandhout: date,
+                state: 'cart',
+                itens: [],
+            });
+            setOrderId(response.data.orderId);
+        } catch (e) {
+            console.log('Error in requisition', e);
+        }
+    };
+
+    const addInCart = async() => {
+        try {
+            const response = await axios.put(`http://localhost:4000/cart/${user.email}`, { state: 'cart' });
         } catch(e) {
             console.log('Error in requisition' , e);
         }
