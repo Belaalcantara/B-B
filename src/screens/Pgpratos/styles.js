@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   infosPrato: {
-    fontSize: 25,
+    fontSize: 5,
     color: "black",
     marginTop: 5,
   },

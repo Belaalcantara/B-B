@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
 
 
   container: {
-    backgroundColor: "#712525",
+    backgroundColor: "#681111",
     width: '100vw',
     height: '100vh',
   },
@@ -28,23 +28,26 @@ const styles = StyleSheet.create({
   },
 
   infos: {
-    margin: 20,
-    backgroundColor:"pink"
+   marginTop:15,
+   display: 'flex',
+   flexDirection: 'row',
+
+   
   },
 
   titulo: {
-    fontSize: "16px",
+    fontSize: "25px",
     fontWeight: 'bold',
-    width: '90%',
+
+  
   },
 
   card: {
-    display: 'flex',
-    flexDirection: 'row',
+
     width: '90vw',
-    height: '15vh',
+    height: '18vh',
     marginTop: 100,
-    marginLeft: 25,
+    marginLeft: 8,
     backgroundColor: '#fff',
     borderRadius: 20,
   },

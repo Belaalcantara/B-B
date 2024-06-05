@@ -49,10 +49,12 @@ export default function Restaurantes({ route }) {
                                 <View style={styles.card}>
                                     <View> 
                                         <Image source={{ uri: restaurant.image }} />
-                                    <View style={styles.infos}></View>
-                                   
-                                        <Text style={styles.titulo}>{restaurant.name}</Text>
+                                    <View style={styles.infos}>
+                                    <Text style={styles.titulo}>{restaurant.name}</Text>
                                         <Text style={styles.texto}>{restaurant.operation}</Text>
+                                    </View>
+                                   
+                                       
                                     </View>
                                 </View>
                             </TouchableOpacity>
