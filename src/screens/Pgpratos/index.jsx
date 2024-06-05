@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../userContext';
-import { View, Text, Image, ScrollView, Button } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import axios from 'axios';
 import Products from '../../components/Products';
@@ -61,7 +61,7 @@ function Pgpratos({ route }) {
 
     const finishOrder = async () => {
         try {
-            await axios.put(`http://localhost:4000/cart/${orderId}`, { state: 'preparing' });
+            await axios.patch(`http://localhost:4000/cart/state/${orderId}`, { state: 'preparing' });
             const order = await getOrder(orderId);
             navigation.navigate('DetailsOrder', { order });
         } catch (e) {
@@ -109,7 +109,9 @@ function Pgpratos({ route }) {
                             <Text>Loading products...</Text>
                         )}
                     </View>
-                    <Button title="Finish Order" onPress={finishOrder} />
+                    <TouchableOpacity onPress={finishOrder}>
+                        <Text>Finalizar pedido</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         ) : (
