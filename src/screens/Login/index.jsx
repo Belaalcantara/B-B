@@ -6,11 +6,14 @@ import axios from "axios";
 import Popup from "../../components/Popup";
 import Modal from "../../components/Modal";
 import { UserContext } from "../../userContext";
+import { Feather } from "@expo/vector-icons";
 
 export default function Login() {
 
     const navigation = useNavigation();
-    const { user, setUser } = useContext(UserContext);
+    const { login } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
+    const [secureTextEntry, setSecureTextEntry] = useState(true);
 
     //popup
     const [popup, setPopup] = useState(false);
@@ -65,10 +68,63 @@ export default function Login() {
     const logoff = () => {
         setUser(null);
     }
-    
+
     const closeModal = () => {
         setOpenModal(false);
     }
+
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setOpenModal(false)
+        }, 7000);
+
+        return () => clearTimeout(timeout);
+    }, [content]);
+
+    const toggleSecureEntry = () => {
+        setSecureTextEntry(!secureTextEntry);
+    };
+
+    const validation = () => {
+        let errors = [];
+        if (!email) {
+            errors.push("Preencha o campo de email");
+        } else if (!email.includes("@")) {
+            errors.push("Email inválido");
+        }
+
+        if (errors.length > 0) {
+            setError(errors.join("\n"));
+            return false;
+        }
+        return true;
+    };
+
+    const handleSignIn = async () => {
+        if (!validation()) {
+            return;
+        }
+
+        try {
+            setLoading(true);
+            const response = await login(email, password);
+            console.log("response: ", response);
+            if (response) {
+                setOpenModal(false);
+                navigation.navigate("Home");
+                setEmail("");
+                setPassword("");
+            }
+        } catch (error) {
+            console.error("Erro ao fazer login: ", error);
+            setOpenModal(true);
+            setContent('Erro, tente novamente');
+        } finally {
+            setLoading(false);
+        }
+    };
+
 
     return (
         <View style={styles.container}>
@@ -113,9 +169,17 @@ export default function Login() {
                                     <TextInput style={styles.inpt}
                                         value={password}
                                         onChangeText={setPassword}
+                                        secureTextEntry={secureTextEntry}
                                     />
+                                    <TouchableOpacity onPress={toggleSecureEntry} style={styles.eyeIcon}>
+                                        <Feather
+                                            name={secureTextEntry ? "eye-off" : "eye"}
+                                            size={24}
+                                            color="gray"
+                                        />
+                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity onPress={fetchUser} style={styles.entryBtn}>
+                                <TouchableOpacity onPress={handleSignIn} disabled={loading} style={styles.entryBtn}>
                                     <Text style={styles.btn}>Entrar</Text>
                                 </TouchableOpacity>
 

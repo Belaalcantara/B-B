@@ -12,7 +12,6 @@ import Comentarios from '../screens/Comentarios';
 import RendComent from '../screens/RendComent'
 import Orders from '../screens/Pedidos';
 import Pgpratos from '../screens/Pgpratos';
-import Logins from '../screens/Login'
 import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
 
