@@ -5,13 +5,14 @@ const Products = ({ data, addInCart, loggon }) => {
     return (
         <View style={styles.cardContainer}>
             <View style={styles.cards}>
-                <Image source={{ uri: data.image }} />
                 <View style={styles.infos}>
+                    <Image source={{ uri: data.image }} />
                     <Text style={styles.nomePrato}>{data.name}</Text>
-                    <Text style={styles.precoPrato}>{data.price}</Text>
                 </View>
             </View>
             <Text style={styles.desc}>{data.description}</Text>
+            <Text style={styles.precoPrato}>{data.price}</Text>
+
             {
                 loggon ? (
                     <TouchableOpacity onPress={addInCart}>
