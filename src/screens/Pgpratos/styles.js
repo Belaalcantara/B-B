@@ -80,7 +80,19 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     margin: 10,
     fontWeight: "bold"
-  }
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 110,
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 
 export default styles;

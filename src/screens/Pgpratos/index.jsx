@@ -5,6 +5,7 @@ import styles from './styles';
 import axios from 'axios';
 import Products from '../../components/Products';
 import { useNavigation } from '@react-navigation/native';
+import {ActivityIndicator} from 'react-native';
 
 function Pgpratos({ route }) {
     const { id } = route.params;
@@ -117,7 +118,11 @@ function Pgpratos({ route }) {
                             <Text style={styles.subInfo1}>Horário de funcionamento: {restaurant.operation}</Text>
                         </View>
                     ) : (
-                        <Text>Loading restaurant...</Text>
+                        <View style={[styles.container, styles.horizontal]}>
+    
+                        <ActivityIndicator size="large" color="#dc341d"   style={[styles.container, styles.horizontal]} />
+                        
+                      </View>
                     )}
                 </View>
                 <View style={styles.cardContainerGeral}>

@@ -3,6 +3,7 @@ import styles from "./styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import {ActivityIndicator} from 'react-native';
 
 
 export default function Restaurantes({ route }) {
@@ -55,7 +56,11 @@ export default function Restaurantes({ route }) {
                             </TouchableOpacity>
                         ))
                     ) : (
-                        null
+                        <View style={[styles.container, styles.horizontal]}>
+    
+                        <ActivityIndicator size="large" color="#dc341d"   style={[styles.container, styles.horizontal]} />
+                        
+                      </View>
                     )
                 }
 
