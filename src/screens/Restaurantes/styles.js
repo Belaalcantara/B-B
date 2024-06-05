@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 
   infos: {
     margin: 20,
+    backgroundColor:"pink"
   },
 
   titulo: {
