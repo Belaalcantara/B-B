@@ -1,6 +1,6 @@
 import { View, ImageBackground, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import Popup from "../../components/Popup";
@@ -11,7 +11,7 @@ import { Feather } from "@expo/vector-icons";
 export default function Login() {
 
     const navigation = useNavigation();
-    const { login } = useContext(UserContext);
+    const { login, user } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [secureTextEntry, setSecureTextEntry] = useState(true);
 
