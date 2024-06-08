@@ -15,6 +15,7 @@ import Pgpratos from '../screens/Pgpratos';
 import Logins from '../screens/Login'
 import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
+import DetailsOrders from '../screens/Detalhes';
 
 
 
@@ -85,7 +86,7 @@ const DrawerRoutes = () => {
 
 
 
-<Drawer.Screen
+      <Drawer.Screen
         name="Cadastro"
         component={Register}
         options={{
@@ -166,6 +167,17 @@ const DrawerRoutes = () => {
         name="Pgpratos"
         component={Pgpratos}
         initialParams={{ id: null }}
+        options={{
+          drawerItemStyle: {
+            display: 'none'
+          }
+        }}
+      />
+
+      <Drawer.Screen
+        name="DetailsOrders"
+        component={DetailsOrders}
+        initialParams={{ orderid: null }}
         options={{
           drawerItemStyle: {
             display: 'none'

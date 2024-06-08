@@ -21,7 +21,7 @@ export default function Orders() {
     const fetchOrders = async () => {
         try {
             if (user) {
-                const response = await axios.get(`http://localhost:4000/cart/${user.email}`);
+                const response = await axios.get(`http://localhost:4000/cart/user/${user.email}`);
                 console.log(response);
                 setOrders(response.data);
             }

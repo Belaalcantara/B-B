@@ -8,12 +8,12 @@ import { UserContext } from "../../userContext";
 
 
 const carouselItems = [
-  { title: 'Massas', image: require('../../../assets/Massas.png'), navigateTo: 'Massas' },
-  { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), navigateTo: 'Sorveterias' },
-  { title: 'Asiáticas', image: require('../../../assets/Asiáticas.png'), navigateTo: 'Asiaticas' },
-  { title: 'Fastfood', image: require('../../../assets/fastfood.png'), type: 'FAST-FOOD' },
-  { title: 'Marmitex', image: require('../../../assets/Marmitex.png'), navigateTo: 'Marmitex' },
-  { title: 'Pizzarias', image: require('../../../assets/Pizzarias.png'), navigateTo: 'Pizzarias' }
+  { title: 'Massas', image: require('../../../assets/Massas.png'), navigateTo: 'Massa' },
+  { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), navigateTo: 'Sorvete' },
+  { title: 'Asiáticas', image: require('../../../assets/Asiáticas.png'), navigateTo: 'Sushi' },
+  { title: 'Fastfood', image: require('../../../assets/fastfood.png'), type: 'FastFood' },
+  { title: 'Marmitex', image: require('../../../assets/Marmitex.png'), navigateTo: 'Marmita' },
+  { title: 'Pizzarias', image: require('../../../assets/Pizzarias.png'), navigateTo: 'Pizza' }
 ];
 
 export default function Home() {

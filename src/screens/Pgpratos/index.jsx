@@ -53,26 +53,31 @@ function Pgpratos({ route }) {
                 state: 'cart',
                 itens,
             });
-            setOrderId(response.data.orderId);
+            setOrderId(response.data.order);
+            console.log(response.data.order);
         } catch (e) {
             console.log('Error in requisition', e);
         }
     };
 
-    console.log(new Date());
-
     const addInCart = async (product, quantity) => {
-        const newItens = [...itens, { productid: product.id, quantity }];
+        const newItens = [...itens, { productid: product.id, quantity /*precisa de atributo?*/ }];
         setItens(newItens);
         try {
-            if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
-                return false;
+            if (orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
+                return 'clean cart'; //fazer logica do modal
             }
 
             if (!orderId) {
                 await createOrder();
             } else {
-                await axios.put(`http://localhost:4000/cart/${orderId}`, { itens: newItens, state: 'cart' });
+                await axios.put(`http://localhost:4000/cart/${orderId}`, {
+                    userEmail: user.email,
+                    restaurantID: id,
+                    dateandhour: new Date(),
+                    state: 'cart',
+                    itens,
+                });
             }
         } catch (e) {
             console.log('Error in requisition', e);
@@ -83,7 +88,7 @@ function Pgpratos({ route }) {
         try {
             await axios.patch(`http://localhost:4000/cart/state/${orderId}`, { state: 'preparing' });
             const order = await getOrder(orderId);
-            navigation.navigate('DetailsOrder', { order });
+            navigation.navigate('DetailsOrders', { orderid: orderId });
         } catch (e) {
             console.log('Error in requisition', e);
         }
