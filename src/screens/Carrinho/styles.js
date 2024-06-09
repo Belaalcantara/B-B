@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: "25px",
-    fontWeight: 'bold',
-    color: 'white'
+        fontWeight: 'bold',
+        color: 'white'
     },
 
     item: {
@@ -36,28 +36,61 @@ const styles = StyleSheet.create({
     },
 
     texto: {
-        marginTop:-50,
+        marginTop: -50,
         marginLeft: 150,
+    },
+
+
+    img: {
+        width: 90,
+        height: 90,
+        borderRadius: "20px",
+        marginTop: "15px",
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: 10,
+    },
+
+    texto1: {
+        fontSize: "12px",
+        padding: "5px",
+        maxWidth: '50%'
+    },
+
+    infos: {
+        display: 'flex',
+        flexDirection: 'row',
+        color: 'green',
+        marginLeft: 90,
+        marginTop: 20
+    },
+
+    titulo: {
+        fontSize: "15px",
+        fontWeight: 'bold',
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: 9,
+        marginTop: 20
+    },
+
+    card: {
+
+        width: '90vw',
+        height: '18vh',
+        marginTop: 270,
+        marginLeft: 20,
+        backgroundColor: "#fff",
+        borderRadius: 15,
+    },
+
+    container2: {
+        backgroundColor: "#681111",
+        width: '100vw',
+        height: '100vh',
       },
-
-      
-  img: {
-    width: 90,
-    height: 90,
-    borderRadius: "20px",
-    marginTop: "15px",
-    display: 'flex',
-    flexDirection: 'row',
-    marginLeft: 10,
-  },
-
-  textbnt: {
-    alignItems: 'center',
-    justifyContent:'center',
-    color: 'red'
-  }
-
     
+
 });
 
 export default styles;

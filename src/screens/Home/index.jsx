@@ -46,7 +46,7 @@ export default function Home() {
         </View>
       </View>
 
-      <TextInput
+      <Text
                 style={styles.input}
                 placeholder="Pesquisar Restaurante"
             />
