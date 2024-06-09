@@ -67,6 +67,9 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+          drawerItemStyle: {
+            display: 'none'
+          },
           drawerLabel: "Boas Vindas",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
@@ -85,6 +88,9 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+          drawerItemStyle: {
+            display: 'none'
+          },
           drawerLabel: "Boas Vindas 2",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
@@ -103,6 +109,9 @@ const DrawerRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+          drawerItemStyle: {
+            display: 'none'
+          },
           drawerLabel: "Boas Vindas 3",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",

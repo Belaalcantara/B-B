@@ -1,10 +1,11 @@
-import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
 import styles from "./styles";
 import { useContext } from "react";
 import { UserContext } from "../../userContext";
+import axios from "axios";
 
 
 const carouselItems = [
@@ -21,6 +22,23 @@ export default function Home() {
   const { user } = useContext(UserContext);
   const { width: viewportWidth } = Dimensions.get('window');
 
+  const [restaurant, setRestaurant] = useState(null);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchRestaurant();
+  }, [restaurant]);
+
+  const fetchRestaurant = async () => {
+    try {
+      const response = await axios.get(`http://localhost:4000/restaurants/name/${restaurant}`);
+      setData(response.data);
+    } catch (e) {
+      console.log('Error in requisition', e);
+    }
+  }
+  console.log(data);
+
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => navigation.navigate('Restaurantes', { type: item.type })}>
       <Image source={item.image} style={styles.image} resizeMode="cover" />
@@ -36,34 +54,50 @@ export default function Home() {
             style={styles.imageperfil}
           />
           <View style={styles.infos}>
-            <Text style={styles.boasvindas}>{ user ? `Seja bem-vindo(a), ${user.name}` : 'Seja bem-vindo(a), novo cliente!' }</Text>
+            <Text style={styles.boasvindas}>{user ? `Seja bem-vindo(a), ${user.name}` : 'Seja bem-vindo(a), novo cliente!'}</Text>
             <Text style={styles.textocinza}>Já realizou o seu pedido de hoje?</Text>
           </View>
         </View>
         <View style={styles.infosperfil}>
-          <Text style={styles.textonome}>{ user && user.name }</Text>
-          <Text style={styles.textoemail}>{ user && user.email }</Text>
+          <Text style={styles.textonome}>{user && user.name}</Text>
+          <Text style={styles.textoemail}>{user && user.email}</Text>
         </View>
       </View>
-
       <Text
                 style={styles.input}
                 placeholder="Pesquisar Restaurante"
             />
-
       <Text style={styles.categorias}>Categorias</Text>
 
-<View style={styles.categorias1}>
-      <Carousel
-        data={carouselItems}
-        renderItem={renderItem}
-        sliderWidth={viewportWidth}
-        itemWidth={100}
-        layout={'default'}
-        activeSlideAlignment="start"
-        activeSlideOffset={"start"}
-      />
-</View>
+      <View style={styles.categorias1}>
+        <View>
+          <TextInput
+            value={restaurant}
+            onChangeText={setRestaurant}
+            style={styles.input}
+            placeholder="Pesquisar Restaurante"
+          />
+          <View>
+            {
+              data.map((restaurant) => {
+                <View>
+                  <Image source={{ uri: restaurant.image }} style={{ width: 30, height: 30 }} />
+                  <Text>{restaurant.name}</Text>
+                </View>
+              })
+            }
+          </View>
+        </View>
+        <Carousel
+          data={carouselItems}
+          renderItem={renderItem}
+          sliderWidth={viewportWidth}
+          itemWidth={100}
+          layout={'default'}
+          activeSlideAlignment="start"
+          activeSlideOffset={"start"}
+        />
+      </View>
       <View style={styles.blocofome}>
         <Text style={styles.text}>Como está sua fome hoje?</Text>
         <View style={styles.carinhas}>
