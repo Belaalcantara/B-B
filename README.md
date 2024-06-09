@@ -1,4 +1,4 @@
-# B&B: Bom & Barato - BackEnd
+# B&B: Bom & Barato - FrontEnd
 
 Este é o repositório oficial do nosso aplicativo de delivery de comida B&B. Aqui você encontrará tudo o que precisa para desfrutar de uma experiência de pedido de comida rápida, fácil e segura. Explore uma variedade de restaurantes locais e faça seus pedidos com apenas alguns toques na tela do seu dispositivo móvel. Experimente uma nova maneira de saborear suas refeições favoritas, onde quer que esteja!
 
@@ -40,7 +40,7 @@ O React Native Snap Carousel é uma biblioteca que permite criar carrosséis de 
 - Personalização do estilo e da aparência do carrossel.
 - Suporte a vários tipos de conteúdo, incluindo imagens, componentes personalizados e muito mais.
 
-Para saber mais sobre o React Native Snap Carousel, consulte a documentação oficial: [React Native Snap Carousel Documentation](url_do_documentation)
+Para saber mais sobre o React Native Snap Carousel, consulte a documentação oficial: [React Native Snap Carousel Documentation](https://masternet-fabiano.medium.com/react-native-snap-carousel-e3c8a2ff6c37)
 
 ## 2. Axios
 
@@ -52,7 +52,7 @@ O Axios é uma biblioteca JavaScript amplamente utilizada para fazer requisiçõ
 - Interceptors para manipulação de requisições e respostas.
 - Suporte a várias formas de dados, incluindo JSON, FormData, entre outros.
 
-Para saber mais sobre o Axios, consulte a documentação oficial: [Axios Documentation](url_do_documentation)
+Para saber mais sobre o Axios, consulte a documentação oficial: [Axios Documentation](https://www.npmjs.com/package/axios)
 
 ## 3. React Native Date Picker
 
@@ -63,13 +63,9 @@ O React Native Date Picker é uma biblioteca que fornece componentes de seleçã
 - Suporte a diferentes modos de seleção, como data, hora e data e hora combinadas.
 - Personalização do estilo e do comportamento dos componentes de seleção.
 
-Para saber mais sobre o React Native Date Picker, consulte a documentação oficial: [React Native Date Picker Documentation](url_do_documentation)
+Para saber mais sobre o React Native Date Picker, consulte a documentação oficial: [React Native Date Picker Documentation](https://github.com/henninghall/react-native-date-picker)
 
 ---
-
-Substitua `url_do_documentation` pelas URLs das documentações oficiais de cada biblioteca.
-
-Este documento fornece uma visão geral das principais bibliotecas utilizadas no projeto e seus recursos principais. Se precisar de mais detalhes ou informações específicas sobre alguma biblioteca, consulte as respectivas documentações oficiais.
 '
 
 ## Estrutura de arquivos
