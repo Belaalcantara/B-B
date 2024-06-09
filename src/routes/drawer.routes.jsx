@@ -17,6 +17,10 @@ import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
 import DetailsOrders from '../screens/Detalhes';
 import Carrinho from '../screens/Carrinho';
+import BoasVindas1 from '../screens/BoasVindas1';
+import BoasVindas2 from '../screens/BoasVindas2';
+import BoasVindas3 from '../screens/BoasVindas3';
+
 
 
 
@@ -49,6 +53,63 @@ const DrawerRoutes = () => {
         },
       }}
     >
+
+  
+<Drawer.Screen
+        name="BoasVindas1"
+        component={BoasVindas1}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Boas Vindas",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+<Drawer.Screen
+        name="BoasVindas2"
+        component={BoasVindas2}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Boas Vindas 2",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+<Drawer.Screen
+        name="BoasVindas3"
+        component={BoasVindas3}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Boas Vindas 3",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+
       <Drawer.Screen
         name="Home"
         component={Home}
