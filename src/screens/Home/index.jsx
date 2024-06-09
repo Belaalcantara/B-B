@@ -37,7 +37,10 @@ export default function Home() {
       console.log('Error in requisition', e);
     }
   }
-  console.log(data);
+  
+  const goToPgpratos = (id) => {
+    navigation.navigate('Pgpratos', { id: id });
+  }
 
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => navigation.navigate('Restaurantes', { type: item.type })}>
@@ -74,13 +77,13 @@ export default function Home() {
             style={styles.input}
             placeholder="Pesquisar Restaurante"
           />
-          <View>
+          <View style={styles.nav}>
             {
               data.map((restaurant) => {
-                <View>
+                <TouchableOpacity onPress={() => goToPgpratos(restaurant.id)}>
                   <Image source={{ uri: restaurant.image }} style={{ width: 30, height: 30 }} />
                   <Text>{restaurant.name}</Text>
-                </View>
+                </TouchableOpacity>
               })
             }
           </View>

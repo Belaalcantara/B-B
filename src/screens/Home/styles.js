@@ -146,6 +146,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 },
+nav: {
+  width: '100%',
+  height: 'auto'
+}
 });
 
 export default styles;
