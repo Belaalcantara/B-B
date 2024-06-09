@@ -6,7 +6,7 @@ const Products = ({ data, addInCart, loggon }) => {
         <View style={styles.cardContainer}>
             <View style={styles.cards}>
                 <View style={styles.infos}>
-                    <Image source={{ uri: data.image }} />
+                    <Image source={{ uri: data.image }} style={styles.imagemCard} />
                     <Text style={styles.nomePrato}>{data.name}</Text>
                 </View>
             </View>

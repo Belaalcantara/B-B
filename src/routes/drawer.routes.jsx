@@ -169,19 +169,21 @@ const DrawerRoutes = () => {
         initialParams={{ id: null }}
         options={{
           drawerItemStyle: {
-            display: 'none'
-          }
+            display: 'none',
+          },
+          headerTitle:false
         }}
       />
 
       <Drawer.Screen
         name="DetailsOrders"
         component={DetailsOrders}
-        initialParams={{ orderid: null }}
+        initialParams={{ order: null }}
         options={{
           drawerItemStyle: {
             display: 'none'
-          }
+          },
+          headerTitle:false
         }}
       />
     </Drawer.Navigator>

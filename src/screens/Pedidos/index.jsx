@@ -80,7 +80,7 @@ export default function Orders() {
                     )
                 }
                 {
-                    openModal && <Modal isOpen={openModal} closeModal={closeModal} isAvaliation={false} />
+                    openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={false} data={null} />
                 }
             </View>
         </View>

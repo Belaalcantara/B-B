@@ -1,11 +1,17 @@
 import { TouchableOpacity, View, Text } from "react-native";
 import styles from "./styles";
 import RegisterAddress from "../Address";
+import Orders from "../Order";
 
-const Modal = ({ isOpen, closeModal, isAvaliation }) => {
+const Modal = ({ isOpen, closeModal, isOrder, data }) => {
     if(!isOpen) {
         return null;
     }
+
+    if(!isOrder) {
+        data = null;
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.modal}>
@@ -16,9 +22,9 @@ const Modal = ({ isOpen, closeModal, isAvaliation }) => {
                         </TouchableOpacity>
                     </View>
                     {
-                        isAvaliation ? (
+                        isOrder ? (
                             <View style={styles.header}>
-                                {/*Avaliação*/}
+                                <Orders data={data}/>
                             </View>
                         ) : (
                             <View style={styles.header}>

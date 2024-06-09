@@ -6,6 +6,7 @@ import axios from 'axios';
 import Products from '../../components/Products';
 import { useNavigation } from '@react-navigation/native';
 import {ActivityIndicator} from 'react-native';
+import FinishOrder from '../../components/FinishOrder';
 
 function Pgpratos({ route }) {
     const { id } = route.params;
@@ -17,6 +18,12 @@ function Pgpratos({ route }) {
     const [orderId, setOrderId] = useState(null);
     const [itens, setItens] = useState([]);
     const [orders, setOrders] = useState(null);
+
+    const [openModal, setOpenModal] = useState(false);
+    const [order, setOrder] = useState(null);
+
+    const [openFinish, setOpenFinish] = useState(false);
+
 
     useEffect(() => {
         fetchRestaurant();
@@ -61,11 +68,15 @@ function Pgpratos({ route }) {
     };
 
     const addInCart = async (product, quantity) => {
-        const newItens = [...itens, { productid: product.id, quantity /*precisa de atributo?*/ }];
+        const newItens = [...itens, { productid: product.id, quantity }];
         setItens(newItens);
         try {
             if (orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
-                return 'clean cart'; //fazer logica do modal
+                setOpenModal(true);
+                setOrder(orders.find((order) => order.order_state == 'cart'));
+                console.log(order);
+                setItens(null);
+                return false;
             }
 
             if (!orderId) {
@@ -88,7 +99,7 @@ function Pgpratos({ route }) {
         try {
             await axios.patch(`http://localhost:4000/cart/state/${orderId}`, { state: 'preparing' });
             const order = await getOrder(orderId);
-            navigation.navigate('DetailsOrders', { orderid: orderId });
+            navigation.navigate('DetailsOrders', { order: order });
         } catch (e) {
             console.log('Error in requisition', e);
         }
@@ -112,20 +123,28 @@ function Pgpratos({ route }) {
         }
     };
 
+    const closeModal = () => {
+        setOpenModal(false);
+    }
+
+    const closeFinish = () => {
+        setOpenFinish(false);
+    }
+
     return (
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.margem}>
                     {restaurant ? (
                         <View>
-                            <Image source={{ uri: restaurant.image }} style={styles.image} />
+                            <Image source={{ uri: restaurant.image }} style={styles.imgTopo} />
                             <Text style={styles.restaurante}>{restaurant.name}</Text>
                             <Text style={styles.subInfo1}>Horário de funcionamento: {restaurant.operation}</Text>
                         </View>
                     ) : (
                         <View style={[styles.container, styles.horizontal]}>
     
-                        <ActivityIndicator size="large" color="#dc341d"   style={[styles.container, styles.horizontal]} />
+                        <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
                         
                       </View>
                     )}
@@ -136,7 +155,7 @@ function Pgpratos({ route }) {
                             <Products key={product.id} data={product} addInCart={addInCart} loggon={user} />
                         ))
                     ) : (
-                        <Text>Loading products...</Text>
+                        <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
                     )}
                 </View>
                 {itens.length > 0 && (
@@ -145,6 +164,12 @@ function Pgpratos({ route }) {
                     </TouchableOpacity>
                 )}
             </View>
+            {
+                openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={true} data={order} />
+            }
+            {
+                openFinish && <FinishOrder data={order} isPayment={false} finishOrder={finishOrder} closeFinish={closeFinish}/>
+            }
         </ScrollView>
     );
 }
