@@ -15,15 +15,15 @@ export default function Carrinho({ route }) {
           <View style={styles.item}>
           <Image style={styles.img}/> 
             <View style={styles.texto}>
-            <Text>Item 1</Text>
-            <Text>R$10,00</Text>
+            <Text></Text>
+            <Text></Text>
             </View>
           </View>
           <View style={styles.item}>
         <Image style={styles.img} /> 
           <View style={styles.texto}>
-            <Text>Item 2</Text>
-            <Text>R$15,00</Text>
+            <Text></Text>
+            <Text></Text>
             </View>
           </View>
           <TouchableOpacity style={styles.checkoutButton}>
@@ -32,7 +32,12 @@ export default function Carrinho({ route }) {
 
         </View>
           ) : (
-            null
+            <View>
+            <Text>Você não possui nenhum pedido no carrinho.</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.textbnt}>Deseja fazer um pedido?</Text>
+            </TouchableOpacity>
+            </View>
           )
           }
         </ScrollView>

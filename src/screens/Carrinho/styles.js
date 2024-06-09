@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
+  textbnt: {
+    alignItems: 'center',
+    justifyContent:'center',
+    color: 'red'
+  }
+
     
 });
 
