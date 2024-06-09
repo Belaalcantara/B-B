@@ -16,6 +16,7 @@ import Logins from '../screens/Login'
 import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
 import DetailsOrders from '../screens/Detalhes';
+import Carrinho from '../screens/Carrinho';
 
 
 
@@ -184,6 +185,25 @@ const DrawerRoutes = () => {
           }
         }}
       />
+
+<Drawer.Screen
+        name="Carrinho"
+        component={Carrinho}
+        options={{
+          headerTitle: "",
+          drawerIcon: ({ focused }) => (
+            <Feather
+              name="Carrinho"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerLabel: "Carrinho",
+          drawerActiveTintColor: "#131313",
+          drawerInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
     </Drawer.Navigator>
   );
 };
