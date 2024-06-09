@@ -8,12 +8,12 @@ import { UserContext } from "../../userContext";
 
 
 const carouselItems = [
-  { title: 'Massas', image: require('../../../assets/Massas.png'), navigateTo: 'Massa' },
-  { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), navigateTo: 'Sorvete' },
-  { title: 'Asiáticas', image: require('../../../assets/Asiáticas.png'), navigateTo: 'Sushi' },
+  { title: 'Massas', image: require('../../../assets/Massas.png'), type: 'Massa' },
+  { title: 'Sorveterias', image: require('../../../assets/Sorveterias.png'), type: 'Sorvete' },
+  { title: 'Asiáticas', image: require('../../../assets/Asiáticas.png'), type: 'Sushi' },
   { title: 'Fastfood', image: require('../../../assets/fastfood.png'), type: 'FastFood' },
-  { title: 'Marmitex', image: require('../../../assets/Marmitex.png'), navigateTo: 'Marmita' },
-  { title: 'Pizzarias', image: require('../../../assets/Pizzarias.png'), navigateTo: 'Pizza' }
+  { title: 'Marmitex', image: require('../../../assets/Marmitex.png'), type: 'Marmita' },
+  { title: 'Pizzarias', image: require('../../../assets/Pizzarias.png'), type: 'Pizza' }
 ];
 
 export default function Home() {

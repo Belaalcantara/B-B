@@ -1,11 +1,13 @@
 import { View, Text, Image } from "react-native";
 import styles from "./styles";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../userContext";
 
 export default function DetailsOrders({ route }) {
     const { orderid } = route.params;
 
+    const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
 
     const fetchOrder = async() => {
@@ -19,7 +21,7 @@ export default function DetailsOrders({ route }) {
 
     useEffect(() => {
         fetchOrder();
-    }, []);
+    }, [orderid, user]);
 
     const deleteOrder = async() => {
         try {

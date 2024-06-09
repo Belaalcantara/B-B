@@ -24,7 +24,7 @@ function Pgpratos({ route }) {
         if(user) {
             checkUserOrder();
         }
-    }, []);
+    }, [id, user]);
 
     const checkUserOrder = async () => {
         try {

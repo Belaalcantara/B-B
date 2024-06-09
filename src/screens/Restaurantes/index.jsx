@@ -48,7 +48,7 @@ export default function Restaurantes({ route }) {
                             <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)} key={restaurant.id}>
                                 <View style={styles.card}>
                                     <View> 
-                                        <Image source={{ uri: restaurant.image }} />
+                                        <Image source={{ uri: restaurant.image }} style={styles.img} />
                                     <View style={styles.infos}>
                                     <Text style={styles.titulo}>{restaurant.name}</Text>
                                         <Text style={styles.texto}>{restaurant.operation}</Text>
