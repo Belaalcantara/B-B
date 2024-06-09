@@ -88,7 +88,6 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Carrinho"
         component={Carrinho}
-        initialParams={{ order: null }}
         options={{
           headerTitle: "Carrinho",
           drawerIcon: ({ focused }) => (

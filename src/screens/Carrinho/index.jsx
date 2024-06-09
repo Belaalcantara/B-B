@@ -1,10 +1,28 @@
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../userContext";
 
-export default function Carrinho({ route }) {
-  const { order } = route.params;
+export default function Carrinho() {
+  const { user } = useContext(UserContext);
 
+  const [order, setOrder] = useState(null);
 
+    useEffect(() => {
+      fetchOrder();
+    }, [user]);
+
+    const fetchOrder = async() => {
+      try {
+        const response = await axios.get(`http://localhost:4000/cart/state/${user.email}`);
+        setOrder(response.data);
+      } catch(e) {
+        console.log('Error in requisition', e);
+      }
+    }
+
+    console.log(order);
 
     return (
         <ScrollView>
