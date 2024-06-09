@@ -66,7 +66,10 @@ export default function Home() {
           <Text style={styles.textoemail}>{user && user.email}</Text>
         </View>
       </View>
-
+      <Text
+                style={styles.input}
+                placeholder="Pesquisar Restaurante"
+            />
       <Text style={styles.categorias}>Categorias</Text>
 
       <View style={styles.categorias1}>
