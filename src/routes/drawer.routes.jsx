@@ -85,27 +85,24 @@ const DrawerRoutes = () => {
         }}
       />
 
-
-
       <Drawer.Screen
-        name="Cadastro"
-        component={Register}
+        name="Carrinho"
+        component={Carrinho}
+        initialParams={{ order: null }}
         options={{
-          headerTitle: "",
+          headerTitle: "Carrinho",
           drawerIcon: ({ focused }) => (
             <Feather
-              name="Cadastro"
+              name="menu"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: "Cadastro",
+          drawerLabel: "Carrinho",
           drawerActiveTintColor: "#131313",
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
-
-
 
       <Drawer.Screen
         name="SobreNos"
@@ -149,7 +146,7 @@ const DrawerRoutes = () => {
         options={{
           drawerItemStyle: {
             display: 'none'
-          }
+          },
         }}
       />
 
@@ -172,7 +169,7 @@ const DrawerRoutes = () => {
           drawerItemStyle: {
             display: 'none',
           },
-          headerTitle:false
+          headerTitle: false
         }}
       />
 
@@ -184,28 +181,9 @@ const DrawerRoutes = () => {
           drawerItemStyle: {
             display: 'none'
           },
-          headerTitle:false
+          headerTitle: false
         }}
       />
-
-<Drawer.Screen
-        name="Carrinho"
-        component={Carrinho}
-        options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
-            <Feather
-              name="Carrinho"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          drawerLabel: "Carrinho",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
     </Drawer.Navigator>
   );
 };

@@ -1,13 +1,16 @@
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 
+export default function Carrinho({ route }) {
+  const { order } = route.params;
 
 
-export default function Carrinho() {
 
     return (
         <ScrollView>
-        <View style={styles.container}>
+         { 
+         order ? (
+            <View style={styles.container}>
           <Text style={styles.title}>Seu Carrinho</Text>
           <View style={styles.item}>
           <Image style={styles.img}/> 
@@ -28,6 +31,10 @@ export default function Carrinho() {
           </TouchableOpacity>
 
         </View>
+          ) : (
+            null
+          )
+          }
         </ScrollView>
       )
     };

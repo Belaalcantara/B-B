@@ -7,6 +7,7 @@ import Products from '../../components/Products';
 import { useNavigation } from '@react-navigation/native';
 import {ActivityIndicator} from 'react-native';
 import FinishOrder from '../../components/FinishOrder';
+import Modal from '../../components/Modal';
 
 function Pgpratos({ route }) {
     const { id } = route.params;

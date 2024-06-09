@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import Payment from "../Payment";
 import Orders from "../Order";
@@ -10,7 +10,7 @@ const FinishOrder = ({ data, isPayment, finishOrder, closeFinish }) => {
     const fncAlter = () => {
         setAlterForPayment(true);
     }
-    
+
     return (
         <View style={styles.container}>
             <View style={styles.modal}>
@@ -22,9 +22,16 @@ const FinishOrder = ({ data, isPayment, finishOrder, closeFinish }) => {
                     </View>
                     {
                         alterForPayment ? (
-                            <Payment finish={finishOrder}/>
+                            <View style={styles.header}>
+                                <Payment finish={finishOrder}/>
+                            </View>
                         ) : (
-                            <Orders data={data} fncPayment={fncAlter}/>
+                            <View>
+                                {/* COLOCAR HTML DE EXIBIR DADOS DO PEDIDO (utilizar data.id, ect conforme com oq o back traz) */}
+                                <TouchableOpacity onPress={fncAlter}>
+                                    <Text>Finalizar pedido</Text>
+                                </TouchableOpacity>
+                            </View>
                         )
                     }
                 </View>
