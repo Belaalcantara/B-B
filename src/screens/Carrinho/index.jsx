@@ -50,6 +50,7 @@ export default function Carrinho() {
                             <Image source={{ uri:restaurant.image }}/>
                             <View style={styles.texto}>
                                 <Text>{order.useremail}</Text>
+                                <Text>{order.restaurantid}</Text>
                                 <Text >{restaurant.name}</Text>
                                 <Text>{order.dateandhour}</Text>
                             </View>
@@ -60,12 +61,17 @@ export default function Carrinho() {
 
                     </View>
                 ) : (
-                    <View>
-                        <Text>Você não possui nenhum pedido no carrinho.</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                            <Text style={styles.textbnt}>Deseja fazer um pedido?</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <View style={styles.container2}>
+                    <View style={styles.card}>
+                       
+                            <Text style={styles.titulo}>Você não possui nenhum pedido no carrinho.</Text>
+                            <View>
+                                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                                    <Text style={styles.infos}>Deseja fazer um pedido?</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        </View>
                 )
             }
         </ScrollView>

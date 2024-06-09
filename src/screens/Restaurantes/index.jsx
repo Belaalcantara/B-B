@@ -53,8 +53,6 @@ export default function Restaurantes({ route }) {
                                     <Text style={styles.titulo}>{restaurant.name}</Text>
                                         <Text style={styles.texto}>{restaurant.operation}</Text>
                                     </View>
-                                   
-                                       
                                     </View>
                                 </View>
                             </TouchableOpacity>
