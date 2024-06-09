@@ -17,7 +17,7 @@ Este é o repositório oficial do nosso aplicativo de delivery de comida B&B. Aq
 - Expo CLI instalado globalmente (`npm install -g expo-cli`)
 
 ### Passos para Execução
-1. Clone este repositório: git clone [repositório FrontEnd](https://github.com/Belaalcantara/B-B.git)
+1. Clone este repositório: git clone [https://github.com/Belaalcantara/B-B.git](https://github.com/Belaalcantara/B-B.git)
 2. Instale as dependências: `npm install`
 3. Inicie o servidor de desenvolvimento: `expo start`
 
