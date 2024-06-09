@@ -46,6 +46,11 @@ export default function Home() {
         </View>
       </View>
 
+      <TextInput
+                style={styles.input}
+                placeholder="Pesquisar Restaurante"
+            />
+
       <Text style={styles.categorias}>Categorias</Text>
 
 <View style={styles.categorias1}>
