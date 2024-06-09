@@ -65,9 +65,6 @@ O React Native Date Picker é uma biblioteca que fornece componentes de seleçã
 
 Para saber mais sobre o React Native Date Picker, consulte a documentação oficial: [React Native Date Picker Documentation](https://github.com/henninghall/react-native-date-picker)
 
----
-'
-
 ## Estrutura de arquivos
 
 O projeto segue uma organização lógica de arquivos, facilitando a manutenção e a compreensão do código:
