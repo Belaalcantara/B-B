@@ -11,12 +11,11 @@ export default function DetailsOrders({ route }) {
 
     const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
-    console.log(order);
 
     const fetchOrder = async () => {
         try {
             const orderDB = await axios.get(`http://localhost:4000/cart/${orderid}`);
-            setOrder(orderDB);
+            setOrder(orderDB.data);
         } catch (e) {
             console.log('Error in requisition', e);
         }
