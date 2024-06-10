@@ -29,6 +29,18 @@ export default function DetailsOrders({ route }) {
 
     console.log(order);
 
+    const verifyState = (state) => {
+        if (state == 'preparing') {
+            return 'preparando'
+        } else if (state == 'cart') {
+            return 'carrinho'
+        } else if (state == 'delievering') {
+            return 'entregando'
+        } else {
+            return 'entregue'
+        }
+    }
+
     return (
         <View style={styles.container}>
             {order ? (
@@ -38,7 +50,7 @@ export default function DetailsOrders({ route }) {
                     </View>
                     <View style={styles.containerDetalhes}>
                         <Text style={styles.detalhes}>Data do pedido: {order.order_date.split('-').join('/')}</Text>
-                        <Text style={styles.detalhes}>Estado do pedido: {order.order_state}</Text>
+                        <Text style={styles.detalhes}>Estado do pedido: {() => verifyState(order.order_state)}</Text>
                     </View>
                     <View style={styles.containerTotal}>
                         <Text style={styles.id}>ID do pedido: {order.order_id}</Text>
