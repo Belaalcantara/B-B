@@ -6,7 +6,7 @@ import styles from "./styles";
 import { useContext } from "react";
 import { UserContext } from "../../userContext";
 import axios from "axios";
-
+import Restaurantes from "../Restaurantes";
 
 const carouselItems = [
   { title: 'Massas', image: require('../../../assets/Massas.png'), type: 'Massa' },
@@ -22,7 +22,7 @@ export default function Home() {
   const { user } = useContext(UserContext);
   const { width: viewportWidth } = Dimensions.get('window');
 
-  const [restaurant, setRestaurant] = useState(null);
+  const [restaurant, setRestaurant] = useState('');
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -37,9 +37,10 @@ export default function Home() {
       console.log('Error in requisition', e);
     }
   }
-  
-  const goToPgpratos = (id) => {
-    navigation.navigate('Pgpratos', { id: id });
+
+
+  const handleGoToPgpratos = (id) => {
+    navigation.navigate('Restaurantes', { id: id });
   }
 
   const renderItem = ({ item }) => (
@@ -69,24 +70,6 @@ export default function Home() {
       <Text style={styles.categorias}>Categorias</Text>
 
       <View style={styles.categorias1}>
-        <View>
-          <TextInput
-            value={restaurant}
-            onChangeText={setRestaurant}
-            style={styles.input}
-            placeholder="Pesquisar Restaurante"
-          />
-          <View style={styles.nav}>
-            {
-              data.map((restaurant) => {
-                <TouchableOpacity onPress={() => goToPgpratos(restaurant.id)}>
-                  <Image source={{ uri: restaurant.image }} style={{ width: 30, height: 30 }} />
-                  <Text>{restaurant.name}</Text>
-                </TouchableOpacity>
-              })
-            }
-          </View>
-        </View>
         <Carousel
           data={carouselItems}
           renderItem={renderItem}
