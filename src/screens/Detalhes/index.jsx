@@ -24,7 +24,7 @@ export default function DetailsOrders({ route }) {
     useEffect(() => {
         fetchOrder();
     }, [orderid]);
-
+    console.log(order)
     return (
         <View style={styles.container}>
             {
