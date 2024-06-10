@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
 
 
   container: {
-    backgroundColor: "#681111",
+    backgroundColor: "pink",
     width: '100vw',
     height: '100vh',
   },
@@ -38,6 +38,8 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: "25px",
     fontWeight: 'bold',
+    marginLeft:20,
+    marginTop:40
 
   
   },
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 110,
+    marginTop: 5,
   },
   horizontal: {
     flexDirection: 'row',

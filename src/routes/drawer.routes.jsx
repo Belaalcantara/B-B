@@ -16,6 +16,7 @@ import Logins from '../screens/Login'
 import Login from '../screens/Login';
 import Restaurantes from '../screens/Restaurantes';
 import DetailsOrders from '../screens/Detalhes';
+import FinalizarPedido from '../screens/FinalizarPedido';
 import Carrinho from '../screens/Carrinho';
 
 
@@ -163,6 +164,18 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Pgpratos"
         component={Pgpratos}
+        initialParams={{ id: null }}
+        options={{
+          drawerItemStyle: {
+            display: 'none',
+          },
+          headerTitle: false
+        }}
+      />
+
+<Drawer.Screen
+        name="finalizarPedido"
+        component={FinalizarPedido}
         initialParams={{ id: null }}
         options={{
           drawerItemStyle: {
