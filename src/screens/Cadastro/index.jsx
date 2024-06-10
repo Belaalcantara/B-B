@@ -25,7 +25,7 @@ export default function Register() {
         try {
             const response = await axios.get(`http://localhost:4000/users/${email}`);
             let user = response.data;
-            if(user) {
+            if(user.email) {
                 setPopup(true);
                 setContent('Email já cadastrado');
             } else {
