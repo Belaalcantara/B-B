@@ -63,7 +63,7 @@ export default function DetailsOrders({ route }) {
                     </View>
                     <View style={styles.containerDetalhes}>
                         <Text style={styles.detalhes}>Data do pedido: {order.order_date.split('-').join('/')}</Text>
-                        <Text style={styles.detalhes}>Estado do pedido: {() => verifyState(order.order_state)}</Text>
+                        <Text style={styles.detalhes}>Estado do pedido: {verifyState(order.order_state)}</Text>
                     </View>
                     <View style={styles.containerTotal}>
                         <Text style={styles.id}>ID do pedido: {order.order_id}</Text>
