@@ -241,7 +241,6 @@ const DrawerRoutes = () => {
           drawerItemStyle: {
             display: 'none',
           },
-          headerTitle: false
         }}
       />
 
@@ -266,7 +265,6 @@ const DrawerRoutes = () => {
           drawerItemStyle: {
             display: 'none'
           },
-          headerTitle: false
         }}
       />
     </Drawer.Navigator>
