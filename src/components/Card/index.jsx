@@ -8,7 +8,7 @@ const Card = ({ data }) => {
     const hour = array[1];
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} key={data.order_id}>
             <View style={styles.unique}>
                 <Image style={{borderRadius: 45, width: 60, height: 60, margin: 20}} source={require('../../../assets/bk.jpg')}/>
                 <View style={styles.content}>

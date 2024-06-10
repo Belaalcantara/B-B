@@ -1,84 +1,51 @@
 import { StyleSheet } from "react-native-web";
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor:"#EFECEC"
+  container: {
+    backgroundColor: "#EFECEC",
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  
   cardContainer: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
     justifyContent: "center",
     width: "90vw",
-    height: "30vh",
-    marginTop: 30,
+    height: "37vh",
+    marginTop: 34,
     marginBottom: 30,
-    marginLeft: 20,
-    
-  },
-  imgTopo: {
-    width: "100vw",
-    height: "20vh",
   },
   imagemCard: {
-    width: "33vw",
-    height: "17vh",
-    borderRadius: 10,
-    margin: 5
+    width: "35vw",
+    height: "15vh",
+    borderRadius: 20,
+    marginTop: 6,
   },
-  restaurante: {
-    fontSize: 30,
-    marginTop: 20,
-    color: "white",
-    marginLeft: 10,
-  },
-  infosPrato: {
-    fontSize: 20,
-    color: "black",
-    marginTop: 5,
+  nomePrato: {
+    marginTop: 30,
+    fontSize: 22,
+    marginLeft: 13,
   },
   precoPrato: {
     color: "#65A700",
-    marginTop: 20,
+    marginTop: 5,
+    marginLeft: 10,
     fontSize: 25,
   },
-  subInfo1: {
-    fontSize: 18,
+  infos: {
     flexDirection: "row",
-    color: "black",
-    marginLeft:"8px",
-    marginBottom: 10, 
-    marginTop: 5
-
+    display: "flex",
+    marginTop: 10,
   },
-  nomePrato:{
-    marginBottom: 3,
-    fontSize: 35,
+  infosPrato: {
     marginLeft: 10,
   },
-  cards: {
-    flexDirection:"row",
-    display:"flex",
-  },
-  margem: {
-    borderRadius: 30, 
-    backgroundColor: "#681111",
-  }, 
-  
-  infos: {
-    maxWidth: '50%',
-    color:"pink"
-  },
-  infosPrato1: {
-    margin: 10,
-    fontSize: 15,
-    color:"pink"
-  },
   desc: {
-    fontSize: 18, 
+    fontSize: 16,
     margin: 10,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 export default styles;

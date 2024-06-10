@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native-web";
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor:"#EFECEC"
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+   
   },
-  
-    cardContainer: {
+  cardContainer: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
     justifyContent: "center",
@@ -14,7 +16,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
     marginLeft: 20,
-    
   },
   imgTopo: {
     width: "100vw",
@@ -49,12 +50,12 @@ const styles = StyleSheet.create({
     marginLeft:"8px",
     marginBottom: 15, 
     marginTop: 5
-
   },
-  nomePrato:{
+  nomePrato: {
     marginBottom: 3,
     fontSize: 20,
-    marginLeft: 5,
+    margin: 8,
+    fontWeight: "bold"
   },
   cards: {
     flexDirection:"row",
@@ -63,11 +64,6 @@ const styles = StyleSheet.create({
   margem: {
     borderRadius: 30, 
     backgroundColor: "#681111",
-  }, 
-  nomePrato: {
-    fontSize: 20,
-    margin: 8,
-    fontWeight: "bold"
   }, 
   infos: {
     maxWidth: '50%',
@@ -80,13 +76,6 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     margin: 10,
     fontWeight: "bold"
-  },
-
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 110,
   },
   horizontal: {
     flexDirection: 'row',

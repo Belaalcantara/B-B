@@ -9,9 +9,11 @@ const Products = ({ data, addInCart, loggon }) => {
                     <Image source={{ uri: data.image }} style={styles.imagemCard} />
                     <Text style={styles.nomePrato}>{data.name}</Text>
                 </View>
+               
             </View>
-            <Text style={styles.desc}>{data.description}</Text>
             <Text style={styles.precoPrato}>{data.price}</Text>
+            <Text style={styles.desc}>{data.description}</Text>
+            
 
             {
                 loggon ? (
