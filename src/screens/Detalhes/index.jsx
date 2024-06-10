@@ -11,6 +11,19 @@ export default function DetailsOrders({ route }) {
     const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
 
+    const estado = () => {
+        if(order.order_state == 'preparing') {
+            return 'preparando'
+            } else if(order.order_state == 'cart') {
+            return 'carrinho'
+            } else if(order.order_state == 'delievering') {
+            return 'entregando'
+            } else {
+            return 'entregue'
+            } 
+    }
+    
+
     const fetchOrder = async () => {
         try {
             const orderDB = await axios.get(`http://localhost:4000/cart/user/${user.email}`);
