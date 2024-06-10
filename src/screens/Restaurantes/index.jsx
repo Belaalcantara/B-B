@@ -48,11 +48,16 @@ export default function Restaurantes({ route }) {
                             <TouchableOpacity style={styles.btn} onPress={() => goToRestaurant(restaurant.id)} key={restaurant.id}>
                                 <View style={styles.card}>
                                     <View> 
-                                        <Image source={{ uri: restaurant.image }} style={styles.img} />
                                     <View style={styles.infos}>
-                                    <Text style={styles.titulo}>{restaurant.name}</Text>
-                                        <Text style={styles.texto}>{restaurant.operation}</Text>
+                                    <Image source={{ uri: restaurant.image }} style={styles.img} />
+                                        <Text style={styles.titulo}>{restaurant.name}</Text>
                                     </View>
+
+                                    <Text style={styles.texto}>{restaurant.operation}</Text>
+
+                                   
+                                       
+
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -71,5 +76,3 @@ export default function Restaurantes({ route }) {
     )
 
 }
-/*Apenas uma pagia de restaurantes que sera padrão para todas as outras paginas de restaurantes de cada respectivo restaurante clicado,
-aqui serao puxadas informacoes do banco de dados.*/
