@@ -214,6 +214,7 @@ const DrawerRoutes = () => {
         name="Register"
         component={Register}
         options={{
+          headerTitle: "",
           drawerItemStyle: {
             display: 'none'
           },
@@ -236,6 +237,7 @@ const DrawerRoutes = () => {
         component={Pgpratos}
         initialParams={{ id: null }}
         options={{
+          headerTitle: "",
           drawerItemStyle: {
             display: 'none',
           },
@@ -260,6 +262,7 @@ const DrawerRoutes = () => {
         component={DetailsOrders}
         initialParams={{ orderid: null }}
         options={{
+          headerTitle: "",
           drawerItemStyle: {
             display: 'none'
           },
