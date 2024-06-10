@@ -47,8 +47,9 @@ function Pgpratos({ route }) {
         }
     };
 
-    const createOrder = async () => {
+    const createOrder = async (itens) => {
         try {
+            console.log('Criando novo pedido com itens:', itens);
             const response = await axios.post(`http://localhost:4000/cart`, {
                 userEmail: user.email,
                 restaurantID: id,
@@ -57,29 +58,33 @@ function Pgpratos({ route }) {
                 itens: itens,
             });
             setOrderId(response.data.order);
-            console.log(response.data.order);
+            console.log('Pedido criado com ID:', response.data.order);
         } catch (e) {
-            console.log('Error in requisition', e);
+            console.log('Erro ao criar pedido', e);
         }
     };
 
     const addInCart = async (product, quantity) => {
         const newItens = [...itens, { productid: product.id, quantity }];
-        setItens(newItens);
-        try {
-            if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
-                setOpenModal(true);
-                setOrder(orders.find((order) => order.order_state === 'cart'));
-                console.log(order);
-                setItens([]);
-                return false;
-            }
     
+        if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
+            setOpenModal(true);
+            setOrder(orders.find((order) => order.order_state === 'cart'));
+            console.log('Conflito de restaurante:', orders.restaurant_name);
+            return false;
+        }
+    
+        setItens(newItens); // Atualiza o estado de itens
+    
+        // Aguarda a atualização do estado de itens antes de fazer a requisição
+        await new Promise((resolve) => setTimeout(resolve, 0));
+    
+        try {
             if (!orderId) {
-                console.log('Creating new order...');
-                await createOrder();
+                console.log('Nenhum pedido existente, criando novo pedido...');
+                await createOrder(newItens); // Passa os novos itens para a função createOrder
             } else {
-                console.log('Updating existing order...');
+                console.log('Atualizando pedido existente...');
                 await axios.put(`http://localhost:4000/cart/${orderId}`, {
                     userEmail: user.email,
                     restaurantID: id,
@@ -89,15 +94,16 @@ function Pgpratos({ route }) {
                 });
             }
         } catch (e) {
-            console.log('Error in requisition', e);
+            console.log('Erro na requisição', e);
         }
     };
-
+    
     const finishOrder = async () => {
         try {
             await axios.patch(`http://localhost:4000/cart/state/${orderId}`, { state: 'preparing' });
             const order = await getOrder(orderId);
-            navigation.navigate('DetailsOrders', { order: order });
+            console.log(order);
+            navigation.navigate('DetailsOrders', { orderid: order.id });
         } catch (e) {
             console.log('Error in requisition', e);
         }

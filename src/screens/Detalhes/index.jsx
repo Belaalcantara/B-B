@@ -37,7 +37,7 @@ export default function DetailsOrders({ route }) {
                         <Text style={styles.name}>Restaurante: {order.restaurant_name}</Text>
                     </View>
                     <View style={styles.containerDetalhes}>
-                        <Text style={styles.detalhes}>Data do pedido: {order.order_date}</Text>
+                        <Text style={styles.detalhes}>Data do pedido: {order.order_date.split('-').join('/')}</Text>
                         <Text style={styles.detalhes}>Estado do pedido: {order.order_state}</Text>
                     </View>
                     <View style={styles.containerTotal}>
