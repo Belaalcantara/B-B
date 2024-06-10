@@ -5,15 +5,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      
-        
+        height: '100%',
     },
 
     background: {
         height: '100vh',
         width: '100vw',
         flex: 1,
-        
     },
 
     form: {
@@ -22,8 +20,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: '50px',
         borderRadius: 8,
-        marginTop: '200px',
-        paddingTop: '40px',
+        marginTop: '40px',
+        paddingTop: '20px',
+        marginBottom: '230px',
         paddingBottom: '40px',
 
         shadowColor: "#000",
@@ -124,6 +123,10 @@ const styles = StyleSheet.create({
         width: '100%',
         padding: 10,
         borderRadius: 12
+    },
+
+    CT1: {
+        height: '100%'
     }
 });
 

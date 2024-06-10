@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../userContext';
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import axios from 'axios';
 import Products from '../../components/Products';
 import { useNavigation } from '@react-navigation/native';
-import {ActivityIndicator} from 'react-native';
-import FinishOrder from '../../components/FinishOrder';
 import Modal from '../../components/Modal';
 
 function Pgpratos({ route }) {
@@ -23,13 +21,10 @@ function Pgpratos({ route }) {
     const [openModal, setOpenModal] = useState(false);
     const [order, setOrder] = useState(null);
 
-    const [openFinish, setOpenFinish] = useState(false);
-
-
     useEffect(() => {
         fetchRestaurant();
         getProducts(id);
-        if(user) {
+        if (user) {
             checkUserOrder();
         }
     }, [id, user]);
@@ -52,55 +47,63 @@ function Pgpratos({ route }) {
         }
     };
 
-    const createOrder = async () => {
+    const createOrder = async (itens) => {
         try {
+            console.log('Criando novo pedido com itens:', itens);
             const response = await axios.post(`http://localhost:4000/cart`, {
                 userEmail: user.email,
                 restaurantID: id,
                 dateandhour: new Date(),
                 state: 'cart',
-                itens,
+                itens: itens,
             });
             setOrderId(response.data.order);
-            console.log(response.data.order);
+            console.log('Pedido criado com ID:', response.data.order);
         } catch (e) {
-            console.log('Error in requisition', e);
+            console.log('Erro ao criar pedido', e);
         }
     };
 
     const addInCart = async (product, quantity) => {
         const newItens = [...itens, { productid: product.id, quantity }];
-        setItens(newItens);
+    
+        if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
+            setOpenModal(true);
+            setOrder(orders.find((order) => order.order_state === 'cart'));
+            console.log('Conflito de restaurante:', orders.restaurant_name);
+            return false;
+        }
+    
+        setItens(newItens); // Atualiza o estado de itens
+    
+        // Aguarda a atualização do estado de itens antes de fazer a requisição
+        await new Promise((resolve) => setTimeout(resolve, 0));
+    
         try {
-            if (orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
-                setOpenModal(true);
-                setOrder(orders.find((order) => order.order_state == 'cart'));
-                console.log(order);
-                setItens(null);
-                return false;
-            }
-
             if (!orderId) {
-                await createOrder();
+                console.log('Nenhum pedido existente, criando novo pedido...');
+                await createOrder(newItens); // Passa os novos itens para a função createOrder
             } else {
+                console.log('Atualizando pedido existente...');
                 await axios.put(`http://localhost:4000/cart/${orderId}`, {
                     userEmail: user.email,
                     restaurantID: id,
                     dateandhour: new Date(),
                     state: 'cart',
-                    itens,
+                    itens: newItens,
                 });
             }
         } catch (e) {
-            console.log('Error in requisition', e);
+            console.log('Erro na requisição', e);
         }
     };
-
+    
     const finishOrder = async () => {
         try {
             await axios.patch(`http://localhost:4000/cart/state/${orderId}`, { state: 'preparing' });
             const order = await getOrder(orderId);
-            navigation.navigate('DetailsOrders', { order: order });
+            console.log(order);
+            navigation.navigate('DetailsOrders', { orderid: order.id });
         } catch (e) {
             console.log('Error in requisition', e);
         }
@@ -128,10 +131,6 @@ function Pgpratos({ route }) {
         setOpenModal(false);
     }
 
-    const closeFinish = () => {
-        setOpenFinish(false);
-    }
-
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -144,10 +143,8 @@ function Pgpratos({ route }) {
                         </View>
                     ) : (
                         <View style={[styles.container, styles.horizontal]}>
-    
-                        <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
-                        
-                      </View>
+                            <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
+                        </View>
                     )}
                 </View>
                 <View style={styles.cardContainerGeral}>
@@ -165,12 +162,7 @@ function Pgpratos({ route }) {
                     </TouchableOpacity>
                 )}
             </View>
-            {
-                openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={true} data={order} />
-            }
-            {
-                openFinish && <FinishOrder data={order} isPayment={false} finishOrder={finishOrder} closeFinish={closeFinish}/>
-            }
+            {openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={true} data={order} />}
         </ScrollView>
     );
 }

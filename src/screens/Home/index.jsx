@@ -41,6 +41,9 @@ export default function Home() {
 
   const handleGoToPgpratos = (id) => {
     navigation.navigate('Restaurantes', { id: id });
+  const goToPgpratos = (id) => {
+    navigation.navigate('Pgpratos', { id: id });
+
   }
 
   const renderItem = ({ item }) => (
@@ -70,6 +73,11 @@ export default function Home() {
       <Text style={styles.categorias}>Categorias</Text>
 
       <View style={styles.categorias1}>
+
+
+        <View>
+        </View>
+
         <Carousel
           data={carouselItems}
           renderItem={renderItem}
