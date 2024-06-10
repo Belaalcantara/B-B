@@ -11,13 +11,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize: "25px",
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
+      
     },
 
     item: {
         width: '90vw',
         height: '18vh',
-        marginTop: 100,
+        marginTop: 200,
         marginLeft: 8,
         backgroundColor: '#fff',
         borderRadius: 20,
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
         padding: 10,
         borderRadius: 5,
-        marginTop: 20,
+        marginTop: 180,
+        marginBottom: 20,
     },
     checkoutText: {
         color: 'white',
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     },
 
     texto: {
-        marginTop: -50,
+        marginTop: 30,
         marginLeft: 150,
     },
 
