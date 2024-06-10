@@ -95,7 +95,7 @@ export default function Login() {
                         }
                     </View>
                 ) : (
-                    <View>
+                    <View style={styles.CT1}>
                         <ImageBackground source={require('../../../assets/White and Red Minimalist Promotion Burger Food Instagram Story (1) (1).png')} resizeMode="cover" style={styles.background} />
                         <View style={styles.form}>
                             <Text style={styles.title}>Login:</Text>
