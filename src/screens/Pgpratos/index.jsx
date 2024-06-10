@@ -59,7 +59,7 @@ function Pgpratos({ route }) {
                 restaurantID: id,
                 dateandhour: new Date(),
                 state: 'cart',
-                itens,
+                itens: itens,
             });
             setOrderId(response.data.order);
             console.log(response.data.order);
@@ -88,7 +88,7 @@ function Pgpratos({ route }) {
                     restaurantID: id,
                     dateandhour: new Date(),
                     state: 'cart',
-                    itens,
+                    itens: itens,
                 });
             }
         } catch (e) {
@@ -131,6 +131,8 @@ function Pgpratos({ route }) {
     const closeFinish = () => {
         setOpenFinish(false);
     }
+
+    console.log(orders);
 
     return (
         <ScrollView>
