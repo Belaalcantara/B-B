@@ -1,8 +1,9 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ActivityIndicator } from "react-native";
 import styles from "./styles";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../userContext";
+
 
 export default function DetailsOrders({ route }) {
     const { orderid } = route.params;
@@ -10,6 +11,7 @@ export default function DetailsOrders({ route }) {
 
     const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
+    console.log(order);
 
     const fetchOrder = async () => {
         try {
@@ -26,18 +28,27 @@ export default function DetailsOrders({ route }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.name}>Restaurante: {order.restaurant_name}</Text>
-            <Text style={styles.name}>ID do pedido: {order.order_id}</Text>
+            {
+                order ? (
+                    <View>
+                        <Text style={styles.name}>Restaurante: {order.restaurant_name}</Text>
+                        <Text style={styles.name}>ID do pedido: {order.order_id}</Text>
 
 
-            <View style={styles.containerDetalhes}>
-                <Text style={styles.detalhes}>Detalhes do pedido: {order.products_details}</Text>
-                <Text style={styles.detalhes}>Data do pedido: {order.order_date}</Text>
-                <Text style={styles.detalhes}>Estado do pedido: {order.order_state}</Text>
-            </View>
-            <View style={styles.containerTotal}>
-                <Text style={styles.detalhes}>Total do pedido: {order.total_price}</Text>
-            </View>
+                        <View style={styles.containerDetalhes}>
+                            <Text style={styles.detalhes}>Detalhes do pedido: {order.products_details}</Text>
+                            <Text style={styles.detalhes}>Data do pedido: {order.order_date}</Text>
+                            <Text style={styles.detalhes}>Estado do pedido: {order.order_state}</Text>
+                        </View>
+                        <View style={styles.containerTotal}>
+                            <Text style={styles.detalhes}>Total do pedido: {order.total_price}</Text>
+                        </View>
+                    </View>
+                ) : (
+                    <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
+
+                )
+            }
         </View>
     );
 }
