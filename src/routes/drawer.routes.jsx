@@ -245,7 +245,7 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="DetailsOrders"
         component={DetailsOrders}
-        initialParams={{ order: null }}
+        initialParams={{ orderid: null }}
         options={{
           drawerItemStyle: {
             display: 'none'

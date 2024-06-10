@@ -6,6 +6,7 @@ import { UserContext } from "../../userContext";
 
 export default function DetailsOrders({ route }) {
     const { orderid } = route.params;
+    console.log(orderid);
 
     const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
@@ -21,15 +22,7 @@ export default function DetailsOrders({ route }) {
 
     useEffect(() => {
         fetchOrder();
-    }, [orderid, user]);
-
-    const deleteOrder = async() => {
-        try {
-            await axios.delete(`http://localhost:4000/cart/${orderid}`);
-        } catch(e) {
-            console.log('Error in requisition', e);
-        }
-    }
+    }, [orderid]);
 
     return(
         <View style={styles.container}>

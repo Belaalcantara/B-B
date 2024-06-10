@@ -50,6 +50,10 @@ export default function Orders() {
         }
     }
 
+    const goToDetails = (id) => {
+        navigation.navigate('DetailsOrders', { orderid: id });
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>pedidos</Text>
@@ -59,7 +63,9 @@ export default function Orders() {
                         <ScrollView horizontal={false}>
                             {
                                 orders.orders.map((order) => (
-                                    <Card data={order} key={order.id} />
+                                    <TouchableOpacity onPress={() => goToDetails(order.order_id)}>
+                                        <Card data={order} key={order.order_id} />
+                                    </TouchableOpacity>
                                 ))
                             }
                         </ScrollView>
