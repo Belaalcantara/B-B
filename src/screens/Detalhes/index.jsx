@@ -10,11 +10,11 @@ export default function DetailsOrders({ route }) {
     const { user } = useContext(UserContext);
     const [order, setOrder] = useState(null);
 
-    const fetchOrder = async() => {
+    const fetchOrder = async () => {
         try {
             const orderDB = await axios.get(`http://localhost:4000/cart/${orderid}`);
             setOrder(orderDB);
-        } catch(e) {
+        } catch (e) {
             console.log('Error in requisition', e);
         }
     }
@@ -23,17 +23,28 @@ export default function DetailsOrders({ route }) {
         fetchOrder();
     }, [orderid, user]);
 
-    const deleteOrder = async() => {
+    const deleteOrder = async () => {
         try {
             await axios.delete(`http://localhost:4000/cart/${orderid}`);
-        } catch(e) {
+        } catch (e) {
             console.log('Error in requisition', e);
         }
     }
 
-    return(
+    return (
         <View style={styles.container}>
+            <Text style={styles.name}>Restaurante: {order.restaurant_name}</Text>
+            <Text style={styles.name}>ID do pedido: {order.order_id}</Text>
 
+
+            <View style={styles.containerDetalhes}>
+                <Text style={styles.detalhes}>Detalhes do pedido: {order.products_details}</Text>
+                <Text style={styles.detalhes}>Data do pedido: {order.order_date}</Text>
+                <Text style={styles.detalhes}>Estado do pedido: {order.order_state}</Text>
+            </View>
+            <View style={styles.containerTotal}>
+                <Text style={styles.detalhes}>Total do pedido: {order.total_price}</Text>
+            </View>
         </View>
     );
 }
