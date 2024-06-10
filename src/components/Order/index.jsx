@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
-import styles from './style';
+import styles from './styles';
 
 function Orders({ products, registerUser }) {
     return (
