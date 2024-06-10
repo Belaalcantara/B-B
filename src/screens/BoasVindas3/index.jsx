@@ -10,7 +10,7 @@ export default function BoasVindas3() {
         <View style={styles.container}>
             <ImageBackground source={require("../../../assets/boasvindas3.png")} resizeMode="cover" style={styles.image} />
             
-            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                 <Image
                     style={styles.imageButton}
                     source={require("../../../assets/Icon seta.png")}

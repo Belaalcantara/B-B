@@ -52,10 +52,12 @@ export default function Restaurantes({ route }) {
                                     <Image source={{ uri: restaurant.image }} style={styles.img} />
                                         <Text style={styles.titulo}>{restaurant.name}</Text>
                                     </View>
+
                                     <Text style={styles.texto}>{restaurant.operation}</Text>
 
                                    
                                        
+
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -74,5 +76,3 @@ export default function Restaurantes({ route }) {
     )
 
 }
-/*Apenas uma pagia de restaurantes que sera padrão para todas as outras paginas de restaurantes de cada respectivo restaurante clicado,
-aqui serao puxadas informacoes do banco de dados.*/

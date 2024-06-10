@@ -31,18 +31,16 @@ const styles = StyleSheet.create({
    marginTop:15,
    display: 'flex',
    flexDirection: 'row',
-
-   
   },
 
   titulo: {
     fontSize: "25px",
     fontWeight: 'bold',
+
     marginLeft:20,
     marginTop:40
 
-  
-  },
+   },
 
   card: {
 
