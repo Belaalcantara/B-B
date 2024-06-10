@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../userContext';
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import axios from 'axios';
 import Products from '../../components/Products';
 import { useNavigation } from '@react-navigation/native';
-import {ActivityIndicator} from 'react-native';
-import FinishOrder from '../../components/FinishOrder';
 import Modal from '../../components/Modal';
 
 function Pgpratos({ route }) {
@@ -23,13 +21,10 @@ function Pgpratos({ route }) {
     const [openModal, setOpenModal] = useState(false);
     const [order, setOrder] = useState(null);
 
-    const [openFinish, setOpenFinish] = useState(false);
-
-
     useEffect(() => {
         fetchRestaurant();
         getProducts(id);
-        if(user) {
+        if (user) {
             checkUserOrder();
         }
     }, [id, user]);
@@ -72,23 +67,25 @@ function Pgpratos({ route }) {
         const newItens = [...itens, { productid: product.id, quantity }];
         setItens(newItens);
         try {
-            if (orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
+            if (orders && orders.order_state === 'cart' && orders.restaurant_name !== restaurant.name) {
                 setOpenModal(true);
-                setOrder(orders.find((order) => order.order_state == 'cart'));
+                setOrder(orders.find((order) => order.order_state === 'cart'));
                 console.log(order);
-                setItens(null);
+                setItens([]);
                 return false;
             }
-
+    
             if (!orderId) {
+                console.log('Creating new order...');
                 await createOrder();
             } else {
+                console.log('Updating existing order...');
                 await axios.put(`http://localhost:4000/cart/${orderId}`, {
                     userEmail: user.email,
                     restaurantID: id,
                     dateandhour: new Date(),
                     state: 'cart',
-                    itens: itens,
+                    itens: newItens,
                 });
             }
         } catch (e) {
@@ -128,12 +125,6 @@ function Pgpratos({ route }) {
         setOpenModal(false);
     }
 
-    const closeFinish = () => {
-        setOpenFinish(false);
-    }
-
-    console.log(orders);
-
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -146,10 +137,8 @@ function Pgpratos({ route }) {
                         </View>
                     ) : (
                         <View style={[styles.container, styles.horizontal]}>
-    
-                        <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
-                        
-                      </View>
+                            <ActivityIndicator size="large" color="#dc341d" style={[styles.container, styles.horizontal]} />
+                        </View>
                     )}
                 </View>
                 <View style={styles.cardContainerGeral}>
@@ -167,12 +156,7 @@ function Pgpratos({ route }) {
                     </TouchableOpacity>
                 )}
             </View>
-            {
-                openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={true} data={order} />
-            }
-            {
-                openFinish && <FinishOrder data={order} isPayment={false} finishOrder={finishOrder} closeFinish={closeFinish}/>
-            }
+            {openModal && <Modal isOpen={openModal} closeModal={closeModal} isOrder={true} data={order} />}
         </ScrollView>
     );
 }

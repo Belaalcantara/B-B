@@ -1,10 +1,9 @@
-import { View } from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import styles from "../FinishOrder/styles";
 
 const Payment = ({ finish }) => {
     return (
         <View style={styles.container}>
-
             <TextInput
                 style={styles.input}
                 placeholder="Número do Cartão"
@@ -22,7 +21,7 @@ const Payment = ({ finish }) => {
                 placeholder="CVV"
             />
 
-            <TouchableOpacity onPress={() => navigation.navigate('FinishOrder')}>
+            <TouchableOpacity onPress={finish}>
                 <Text style={styles.textbnt}>Registrar Cartão</Text>
             </TouchableOpacity>
         </View>
