@@ -59,7 +59,7 @@ function Pgpratos({ route }) {
                 restaurantID: id,
                 dateandhour: new Date(),
                 state: 'cart',
-                itens,
+                itens: itens,
             });
             setOrderId(response.data.order);
             console.log(response.data.order);
