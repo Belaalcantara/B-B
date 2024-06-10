@@ -37,7 +37,7 @@ export default function Home() {
       console.log('Error in requisition', e);
     }
   }
-  
+
   const goToPgpratos = (id) => {
     navigation.navigate('Pgpratos', { id: id });
   }
@@ -70,22 +70,6 @@ export default function Home() {
 
       <View style={styles.categorias1}>
         <View>
-          <TextInput
-            value={restaurant}
-            onChangeText={setRestaurant}
-            style={styles.input}
-            placeholder="Pesquisar Restaurante"
-          />
-          <View style={styles.nav}>
-            {
-              data.map((restaurant) => {
-                <TouchableOpacity onPress={() => goToPgpratos(restaurant.id)}>
-                  <Image source={{ uri: restaurant.image }} style={{ width: 30, height: 30 }} />
-                  <Text>{restaurant.name}</Text>
-                </TouchableOpacity>
-              })
-            }
-          </View>
         </View>
         <Carousel
           data={carouselItems}
