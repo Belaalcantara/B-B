@@ -2,7 +2,16 @@ import React from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-function Orders({ products, registerUser }) {
+function Orders({ data }) {
+
+    const clear = async() => {
+        //jaja faço
+    }
+
+    const continueBuy = async() => {
+        //tbm
+    }
+
     return (
         <ScrollView>
             <View style={styles.masterContainer}>

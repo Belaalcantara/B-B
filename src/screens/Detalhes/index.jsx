@@ -14,8 +14,11 @@ export default function DetailsOrders({ route }) {
 
     const fetchOrder = async () => {
         try {
-            const orderDB = await axios.get(`http://localhost:4000/cart/${orderid}`);
-            setOrder(orderDB.data);
+            const orderDB = await axios.get(`http://localhost:4000/cart/user/${user.email}`);
+            if(orderDB.data) {
+                let order = orderDB.data.orders.find((order) => order.order_id == orderid);
+                setOrder(order);
+            }
         } catch (e) {
             console.log('Error in requisition', e);
         }
@@ -31,7 +34,7 @@ export default function DetailsOrders({ route }) {
                 order ? (
                     <View>
                         <Text style={styles.name}>Restaurante: {order.restaurant_name}</Text>
-                        <Text style={styles.name}>ID do pedido: {order.order_id}</Text>
+                        <Text style={styles.name}>ID do pedido: {order.order_idid}</Text>
 
 
                         <View style={styles.containerDetalhes}>
